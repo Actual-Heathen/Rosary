@@ -15,9 +15,9 @@ func _ready():
 func _on_body_body_entered(body):
 	print(body.name)
 	if body.name == "player":
-		timer.start(3)
+		timer.start(2)
 		audio.playing = true
 
 
 func _on_Timer_timeout():
-	get_tree().change_scene(path_to_scene)
+	return(get_tree().change_scene(path_to_scene))
