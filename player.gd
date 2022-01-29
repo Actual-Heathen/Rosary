@@ -4,7 +4,7 @@ export var speed = 20
 export var mSpeed = 15
 export var isMonster = false
 var velocity = Vector3.ZERO
-export var boost = 10
+export var boost = 20
 export var fall_acceleration = 98
 export var canMove = true
 export var direction = Vector3.ZERO
@@ -13,7 +13,7 @@ var dust = preload("res://prefabs/dashparticle.tscn")
 
 func _physics_process(delta):
 	var dust_instance = dust.instance()
-	
+	velocity.y -= fall_acceleration * delta
 	direction = Vector3.ZERO
 	
 	if Input.is_action_pressed("right"):
@@ -55,6 +55,7 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("boost") && direction != Vector3.ZERO && canMove:
 			velocity.x = direction.x*speed*boost
 			velocity.z = direction.z*speed*boost
+			velocity.y = 0
 			get_parent().add_child(dust_instance)
 		else:
 			velocity.x = direction.x * speed
@@ -63,12 +64,16 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("boost") && direction != Vector3.ZERO && canMove:
 			velocity.x = direction.x*mSpeed*boost
 			velocity.z = direction.z*mSpeed*boost
+			velocity.y = 0;
 			get_parent().add_child(dust_instance)
 		else:
 			velocity.x = direction.x * mSpeed
 			velocity.z = direction.z * mSpeed
 			
 	if canMove:
+		if velocity.y > 3:
+			velocity.y = 3
+		
 		velocity = move_and_slide(velocity, Vector3.UP)
 	else:
 		velocity.x = 0
@@ -79,7 +84,7 @@ func _physics_process(delta):
 		isMonster = !isMonster
 		
 	#Vertical velocity
-	velocity.y -= fall_acceleration * delta
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
