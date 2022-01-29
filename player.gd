@@ -6,18 +6,19 @@ export var isMonster = false;
 var velocity = Vector3.ZERO
 export var speedLock = 0
 export var boost = 10
+export var fall_acceleration = 98
+var direction = Vector3.ZERO
 
 func _physics_process(delta):
 	
-	var direction = Vector3.ZERO
 	
 	if Input.is_action_pressed("right"):
 		direction.x -= 1
-	if Input.is_action_pressed("left"):
+	elif Input.is_action_pressed("left"):
 		direction.x +=1
 	if Input.is_action_pressed(("forward")):
 		direction.z += 1
-	if Input.is_action_pressed("back"):
+	elif Input.is_action_pressed("back"):
 		direction.z -= 1
 		
 
@@ -45,6 +46,9 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("monster"):
 		isMonster = !isMonster
+		
+	#Vertical velocity
+	velocity.y -= fall_acceleration * delta
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
