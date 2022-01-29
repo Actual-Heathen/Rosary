@@ -28,6 +28,7 @@ shader_param/border_width = 0.01
 [node name="player" type="KinematicBody"]
 pause_mode = 2
 script = ExtResource( 1 )
+fall_acceleration = 50
 
 [node name="Pivot" type="Spatial" parent="."]
 
