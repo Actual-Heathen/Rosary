@@ -13,8 +13,8 @@ func _ready():
 
 
 func _on_body_body_entered(body):
-	print(body)
-	if body.name == "Player":
+	print(body.name)
+	if body.name == "player":
 		timer.start(3)
 		audio.playing = true
 
