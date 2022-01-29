@@ -7,10 +7,10 @@ var velocity = Vector3.ZERO
 export var speedLock = 0
 export var boost = 10
 export var fall_acceleration = 98
+var direction = Vector3.ZERO
 
 func _physics_process(delta):
 	
-	var direction = Vector3.ZERO
 	
 	if Input.is_action_pressed("right"):
 		direction.x -= 1
