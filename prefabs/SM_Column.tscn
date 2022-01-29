@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://materials/T_GrassyStone.jpg" type="Texture" id=1]
+[ext_resource path="res://textures/T_GrassyStone.jpg" type="Texture" id=1]
 [ext_resource path="res://3dassets/SM_Column.fbx" type="PackedScene" id=2]
 [ext_resource path="res://shader/flexible_toon.shader" type="Shader" id=3]
 
