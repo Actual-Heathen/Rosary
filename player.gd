@@ -1,16 +1,17 @@
 extends KinematicBody
 
-export var speed = 15
-export var mSpeed = 5
+export var speed = 20
+export var mSpeed = 15
 export var isMonster = false;
 var velocity = Vector3.ZERO
-export var speedLock = 0
 export var boost = 10
-export var fall_acceleration = 98
-var direction = Vector3.ZERO
+var fall_acceleration = 98
+export var direction = Vector3.ZERO
+
+var dust = preload("res://prefabs/dashparticle.tscn")
 
 func _physics_process(delta):
-	
+	direction = Vector3.ZERO
 	
 	if Input.is_action_pressed("right"):
 		direction.x -= 1
@@ -20,12 +21,11 @@ func _physics_process(delta):
 		direction.z += 1
 	elif Input.is_action_pressed("back"):
 		direction.z -= 1
-		
-
+	
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
 		$Pivot.look_at(translation + direction, Vector3.UP)
-
+	
 	if !isMonster:
 		
 		if Input.is_action_just_pressed("boost") && direction != Vector3.ZERO:

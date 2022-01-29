@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://shader/hatch_toon.shader" type="Shader" id=1]
 [ext_resource path="res://shader/flexible_toon.shader" type="Shader" id=2]
 [ext_resource path="res://scripts/scene_loader.gd" type="Script" id=3]
+[ext_resource path="res://audio/warp_01.wav" type="AudioStream" id=4]
 
 [sub_resource type="CylinderMesh" id=1]
 
@@ -88,6 +89,7 @@ spot_angle = 8.38353
 [node name="Timer" type="Timer" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 
 [connection signal="body_entered" from="body" to="." method="_on_body_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
