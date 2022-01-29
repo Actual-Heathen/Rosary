@@ -127,32 +127,32 @@ surfaces/8 = {
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 4 )
-shader_param/albedo = Color( 0, 0.972549, 1, 1 )
+shader_param/albedo = Color( 1, 0.309804, 0.713726, 1 )
 shader_param/clamp_diffuse_to_max = false
-shader_param/cuts = 3
+shader_param/cuts = 5
 shader_param/wrap = 0.0
-shader_param/steepness = 1.0
+shader_param/steepness = 1.5
 shader_param/use_attenuation = true
 shader_param/use_specular = true
 shader_param/specular_strength = 1.0
-shader_param/specular_shininess = 16.0
+shader_param/specular_shininess = 5.0
 shader_param/use_rim = true
 shader_param/rim_width = 8.0
-shader_param/rim_color = Color( 1, 1, 1, 1 )
+shader_param/rim_color = Color( 1, 0.509804, 0.796078, 1 )
 shader_param/use_ramp = false
 shader_param/use_borders = false
 shader_param/border_width = 0.01
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 4 )
-shader_param/albedo = Color( 1, 0.72549, 0, 1 )
+shader_param/albedo = Color( 0.768627, 0.768627, 0.768627, 1 )
 shader_param/clamp_diffuse_to_max = false
-shader_param/cuts = 3
+shader_param/cuts = 5
 shader_param/wrap = 0.0
 shader_param/steepness = 1.0
 shader_param/use_attenuation = true
 shader_param/use_specular = true
-shader_param/specular_strength = 1.0
+shader_param/specular_strength = 0.5
 shader_param/specular_shininess = 16.0
 shader_param/use_rim = true
 shader_param/rim_width = 8.0
@@ -163,14 +163,14 @@ shader_param/border_width = 0.01
 
 [sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 4 )
-shader_param/albedo = Color( 1, 0.258824, 0, 1 )
+shader_param/albedo = Color( 0.768627, 0.768627, 0.768627, 1 )
 shader_param/clamp_diffuse_to_max = false
-shader_param/cuts = 3
+shader_param/cuts = 5
 shader_param/wrap = 0.0
 shader_param/steepness = 1.0
 shader_param/use_attenuation = true
 shader_param/use_specular = true
-shader_param/specular_strength = 1.0
+shader_param/specular_strength = 0.5
 shader_param/specular_shininess = 16.0
 shader_param/use_rim = true
 shader_param/rim_width = 8.0
@@ -181,9 +181,9 @@ shader_param/border_width = 0.01
 
 [sub_resource type="ShaderMaterial" id=6]
 shader = ExtResource( 4 )
-shader_param/albedo = Color( 1, 0.486275, 0, 1 )
+shader_param/albedo = Color( 0.792969, 0.494129, 0.0712433, 1 )
 shader_param/clamp_diffuse_to_max = false
-shader_param/cuts = 3
+shader_param/cuts = 5
 shader_param/wrap = 0.0
 shader_param/steepness = 1.0
 shader_param/use_attenuation = true
@@ -199,14 +199,14 @@ shader_param/border_width = 0.01
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = ExtResource( 4 )
-shader_param/albedo = Color( 0.898039, 0.368627, 0, 1 )
+shader_param/albedo = Color( 0.768627, 0.768627, 0.768627, 1 )
 shader_param/clamp_diffuse_to_max = false
-shader_param/cuts = 3
+shader_param/cuts = 5
 shader_param/wrap = 0.0
 shader_param/steepness = 1.0
 shader_param/use_attenuation = true
 shader_param/use_specular = true
-shader_param/specular_strength = 1.0
+shader_param/specular_strength = 0.5
 shader_param/specular_shininess = 16.0
 shader_param/use_rim = true
 shader_param/rim_width = 8.0
@@ -217,14 +217,14 @@ shader_param/border_width = 0.01
 
 [sub_resource type="ShaderMaterial" id=8]
 shader = ExtResource( 4 )
-shader_param/albedo = Color( 1, 0.654902, 0, 1 )
+shader_param/albedo = Color( 0.768627, 0.768627, 0.768627, 1 )
 shader_param/clamp_diffuse_to_max = false
-shader_param/cuts = 3
+shader_param/cuts = 4
 shader_param/wrap = 0.0
 shader_param/steepness = 1.0
 shader_param/use_attenuation = true
 shader_param/use_specular = true
-shader_param/specular_strength = 1.0
+shader_param/specular_strength = 0.5
 shader_param/specular_shininess = 16.0
 shader_param/use_rim = true
 shader_param/rim_width = 8.0
@@ -235,14 +235,14 @@ shader_param/border_width = 0.01
 
 [sub_resource type="ShaderMaterial" id=9]
 shader = ExtResource( 4 )
-shader_param/albedo = Color( 1, 0.929412, 0, 1 )
+shader_param/albedo = Color( 0.768627, 0.768627, 0.768627, 1 )
 shader_param/clamp_diffuse_to_max = false
-shader_param/cuts = 3
+shader_param/cuts = 5
 shader_param/wrap = 0.0
 shader_param/steepness = 1.0
 shader_param/use_attenuation = true
 shader_param/use_specular = true
-shader_param/specular_strength = 1.0
+shader_param/specular_strength = 0.5
 shader_param/specular_shininess = 16.0
 shader_param/use_rim = true
 shader_param/rim_width = 8.0
@@ -253,14 +253,14 @@ shader_param/border_width = 0.01
 
 [sub_resource type="ShaderMaterial" id=10]
 shader = ExtResource( 4 )
-shader_param/albedo = Color( 1, 0, 0, 1 )
+shader_param/albedo = Color( 0.768627, 0.768627, 0.768627, 1 )
 shader_param/clamp_diffuse_to_max = false
-shader_param/cuts = 3
+shader_param/cuts = 5
 shader_param/wrap = 0.0
 shader_param/steepness = 1.0
 shader_param/use_attenuation = true
 shader_param/use_specular = true
-shader_param/specular_strength = 1.0
+shader_param/specular_strength = 0.5
 shader_param/specular_shininess = 16.0
 shader_param/use_rim = true
 shader_param/rim_width = 8.0
@@ -271,18 +271,18 @@ shader_param/border_width = 0.01
 
 [sub_resource type="ShaderMaterial" id=11]
 shader = ExtResource( 4 )
-shader_param/albedo = Color( 1, 0.796078, 0, 1 )
+shader_param/albedo = Color( 1, 0.309804, 0.713726, 1 )
 shader_param/clamp_diffuse_to_max = false
-shader_param/cuts = 3
+shader_param/cuts = 5
 shader_param/wrap = 0.0
-shader_param/steepness = 1.0
+shader_param/steepness = 1.5
 shader_param/use_attenuation = true
 shader_param/use_specular = true
 shader_param/specular_strength = 1.0
-shader_param/specular_shininess = 16.0
+shader_param/specular_shininess = 5.0
 shader_param/use_rim = true
 shader_param/rim_width = 8.0
-shader_param/rim_color = Color( 1, 1, 1, 1 )
+shader_param/rim_color = Color( 1, 0.509804, 0.796078, 1 )
 shader_param/use_ramp = false
 shader_param/use_borders = false
 shader_param/border_width = 0.01
