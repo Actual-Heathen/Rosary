@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://shader/flexible_toon.shader" type="Shader" id=1]
 [ext_resource path="res://3dassets/Material #19.material" type="Material" id=2]
 [ext_resource path="res://3dassets/Stone Wall.material" type="Material" id=3]
-[ext_resource path="res://materials/T_Stone.jpg" type="Texture" id=4]
+[ext_resource path="res://textures/T_Stone.jpg" type="Texture" id=4]
 
 [sub_resource type="ArrayMesh" id=1]
 blend_shape_mode = 0
@@ -53,24 +53,6 @@ shader_param/use_borders = true
 shader_param/border_width = 0.01
 shader_param/albedo_texture = ExtResource( 4 )
 
-[sub_resource type="ShaderMaterial" id=2]
-shader = ExtResource( 1 )
-shader_param/albedo = Color( 0.643137, 0.164706, 0.290196, 0.568627 )
-shader_param/clamp_diffuse_to_max = false
-shader_param/cuts = 5
-shader_param/wrap = 0.0
-shader_param/steepness = 1.0
-shader_param/use_attenuation = true
-shader_param/use_specular = true
-shader_param/specular_strength = 1.0
-shader_param/specular_shininess = 5.0
-shader_param/use_rim = true
-shader_param/rim_width = 8.0
-shader_param/rim_color = Color( 1, 1, 1, 1 )
-shader_param/use_ramp = false
-shader_param/use_borders = false
-shader_param/border_width = 0.01
-
 [sub_resource type="Animation" id=4]
 resource_name = "Take 001"
 length = 3.33333
@@ -86,7 +68,7 @@ transform = Transform( 20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0
 [node name="SM_Stained_Glass" type="MeshInstance" parent="RootNode"]
 mesh = SubResource( 1 )
 material/0 = SubResource( 3 )
-material/1 = SubResource( 2 )
+material/1 = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RootNode"]
 "anims/Take 001" = SubResource( 4 )
