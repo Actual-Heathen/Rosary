@@ -86,24 +86,6 @@ mesh = SubResource( 1 )
 material/0 = SubResource( 3 )
 material/1 = SubResource( 2 )
 
-[node name="SpotLight" type="SpotLight" parent="RootNode/SM_Stained_Glass"]
-transform = Transform( 0.05, 0, 0, 0, 0.0353553, -0.0353553, 0, 0.0353553, 0.0353553, 0.12, 0.038, 0.2 )
-light_color = Color( 0.643137, 0.164706, 0.290196, 1 )
-light_energy = 2.0
-shadow_enabled = true
-shadow_contact = 4.0
-spot_range = 17.5366
-spot_angle = 24.8772
-
-[node name="SpotLight2" type="SpotLight" parent="RootNode/SM_Stained_Glass"]
-transform = Transform( 0.05, 0, 0, 0, 0.0353554, -0.0353553, 0, 0.0353553, 0.0353554, -0.126, 0.038, 0.2 )
-light_color = Color( 0.643137, 0.164706, 0.290196, 1 )
-light_energy = 2.0
-shadow_enabled = true
-shadow_contact = 4.0
-spot_range = 17.5366
-spot_angle = 23.1496
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RootNode"]
 "anims/Take 001" = SubResource( 4 )
 
