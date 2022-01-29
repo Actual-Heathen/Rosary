@@ -1,20 +1,45 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
+[ext_resource path="res://shader/flexible_toon.shader" type="Shader" id=2]
 
 [sub_resource type="CapsuleMesh" id=1]
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 2 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/clamp_diffuse_to_max = false
+shader_param/cuts = 3
+shader_param/wrap = 0.0
+shader_param/steepness = 1.0
+shader_param/use_attenuation = true
+shader_param/use_specular = true
+shader_param/specular_strength = 1.0
+shader_param/specular_shininess = 16.0
+shader_param/use_rim = true
+shader_param/rim_width = 8.0
+shader_param/rim_color = Color( 1, 1, 1, 1 )
+shader_param/use_ramp = false
+shader_param/use_borders = false
+shader_param/border_width = 0.01
 
 [sub_resource type="CapsuleShape" id=2]
 
 [node name="KinematicBody" type="KinematicBody"]
 script = ExtResource( 1 )
 
-[node name="Spatial" type="Spatial" parent="."]
+[node name="Pivot" type="Spatial" parent="."]
 
-[node name="CSGMesh" type="CSGMesh" parent="Spatial"]
+[node name="CSGMesh" type="CSGMesh" parent="Pivot"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0 )
 mesh = SubResource( 1 )
+material = SubResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0 )
 shape = SubResource( 2 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -1, 4.37114e-08, -7.57103e-08, 0, 0.866025, 0.5, 8.74228e-08, 0.5, -0.866025, 0, 21.1103, -29.498 )
+projection = 1
+size = 20.8063
