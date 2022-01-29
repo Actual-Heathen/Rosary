@@ -1,8 +1,6 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://playerMvmt.gd" type="Script" id=1]
-[ext_resource path="res://addons/flexible_toon_shader/flexible_toon.shader" type="Shader" id=2]
-[ext_resource path="res://sand_01_diff_4k.jpg" type="Texture" id=3]
+[ext_resource path="res://scripts/playerMvmtOld.gd" type="Script" id=1]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -26,23 +24,6 @@ extents = Vector3( 1, 0.1, 1 )
 [sub_resource type="CapsuleMesh" id=6]
 
 [sub_resource type="ShaderMaterial" id=7]
-shader = ExtResource( 2 )
-shader_param/albedo = Color( 1, 1, 1, 1 )
-shader_param/clamp_diffuse_to_max = false
-shader_param/cuts = 4
-shader_param/wrap = 0.0
-shader_param/steepness = 1.467
-shader_param/use_attenuation = true
-shader_param/use_specular = true
-shader_param/specular_strength = 1.0
-shader_param/specular_shininess = 16.0
-shader_param/use_rim = true
-shader_param/rim_width = 8.0
-shader_param/rim_color = Color( 1, 1, 1, 1 )
-shader_param/use_ramp = false
-shader_param/use_borders = false
-shader_param/border_width = 0.01
-shader_param/albedo_texture = ExtResource( 3 )
 
 [sub_resource type="CapsuleShape" id=8]
 
