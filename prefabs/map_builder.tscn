@@ -4,6 +4,3 @@
 
 [node name="map_builder" type="Spatial"]
 script = ExtResource( 1 )
-width = 5
-height = 5
-density = 50
