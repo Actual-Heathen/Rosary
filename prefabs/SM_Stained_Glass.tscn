@@ -3,7 +3,7 @@
 [ext_resource path="res://shader/flexible_toon.shader" type="Shader" id=1]
 [ext_resource path="res://3dassets/Material #19.material" type="Material" id=2]
 [ext_resource path="res://3dassets/Stone Wall.material" type="Material" id=3]
-[ext_resource path="res://materials/T_Stone.jpg" type="Texture" id=4]
+[ext_resource path="res://textures/T_Stone.jpg" type="Texture" id=4]
 
 [sub_resource type="ArrayMesh" id=1]
 blend_shape_mode = 0
