@@ -14,11 +14,11 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("right"):
 		direction.x -= 1
-	if Input.is_action_pressed("left"):
+	else_if Input.is_action_pressed("left"):
 		direction.x +=1
 	if Input.is_action_pressed(("forward")):
 		direction.z += 1
-	if Input.is_action_pressed("back"):
+	else if Input.is_action_pressed("back"):
 		direction.z -= 1
 		
 
