@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://3dassets/Metal.material" type="Material" id=1]
 [ext_resource path="res://3dassets/Gray Material.material" type="Material" id=2]
@@ -124,24 +124,6 @@ surfaces/8 = {
 "skeleton_aabb": [  ],
 "vertex_count": 24
 }
-
-[sub_resource type="ShaderMaterial" id=3]
-shader = ExtResource( 4 )
-shader_param/albedo = Color( 1, 0.309804, 0.713726, 1 )
-shader_param/clamp_diffuse_to_max = false
-shader_param/cuts = 5
-shader_param/wrap = 0.0
-shader_param/steepness = 1.5
-shader_param/use_attenuation = true
-shader_param/use_specular = true
-shader_param/specular_strength = 1.0
-shader_param/specular_shininess = 5.0
-shader_param/use_rim = true
-shader_param/rim_width = 8.0
-shader_param/rim_color = Color( 1, 0.509804, 0.796078, 1 )
-shader_param/use_ramp = false
-shader_param/use_borders = false
-shader_param/border_width = 0.01
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 4 )
@@ -269,24 +251,6 @@ shader_param/use_ramp = false
 shader_param/use_borders = false
 shader_param/border_width = 0.01
 
-[sub_resource type="ShaderMaterial" id=11]
-shader = ExtResource( 4 )
-shader_param/albedo = Color( 1, 0.309804, 0.713726, 1 )
-shader_param/clamp_diffuse_to_max = false
-shader_param/cuts = 5
-shader_param/wrap = 0.0
-shader_param/steepness = 1.5
-shader_param/use_attenuation = true
-shader_param/use_specular = true
-shader_param/specular_strength = 1.0
-shader_param/specular_shininess = 5.0
-shader_param/use_rim = true
-shader_param/rim_width = 8.0
-shader_param/rim_color = Color( 1, 0.509804, 0.796078, 1 )
-shader_param/use_ramp = false
-shader_param/use_borders = false
-shader_param/border_width = 0.01
-
 [sub_resource type="Animation" id=2]
 resource_name = "Take 001"
 length = 3.33333
@@ -300,7 +264,7 @@ extents = Vector3( 0.0812575, 0.790435, 0.027496 )
 
 [node name="SM_Cross" type="MeshInstance" parent="RootNode"]
 mesh = SubResource( 1 )
-material/0 = SubResource( 3 )
+material/0 = ExtResource( 3 )
 material/1 = SubResource( 4 )
 material/2 = SubResource( 5 )
 material/3 = SubResource( 6 )
@@ -308,7 +272,7 @@ material/4 = SubResource( 7 )
 material/5 = SubResource( 8 )
 material/6 = SubResource( 9 )
 material/7 = SubResource( 10 )
-material/8 = SubResource( 11 )
+material/8 = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RootNode"]
 "anims/Take 001" = SubResource( 2 )
