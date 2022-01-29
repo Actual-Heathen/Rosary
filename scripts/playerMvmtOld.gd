@@ -5,7 +5,7 @@ export var speed = 15
 var velocity = Vector3.ZERO
 export var speedLock = 0
 export var boost = 10
-
+//
 func _physics_process(delta):
 	
 	var direction = Vector3.ZERO
