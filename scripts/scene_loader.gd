@@ -20,4 +20,4 @@ func _on_body_body_entered(body):
 
 
 func _on_Timer_timeout():
-	get_tree().change_scene(path_to_scene)
+	return(get_tree().change_scene(path_to_scene))
