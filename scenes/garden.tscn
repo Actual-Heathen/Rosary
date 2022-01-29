@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/playerMvmtOld.gd" type="Script" id=1]
 [ext_resource path="res://3dassets/SM_RotatingStone.fbx" type="PackedScene" id=2]
+[ext_resource path="res://scenes/enemyBaseModel.tscn" type="PackedScene" id=3]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -32,6 +33,12 @@ extents = Vector3( 1, 0.1, 1 )
 background_mode = 2
 
 [sub_resource type="CylinderMesh" id=10]
+
+[sub_resource type="CapsuleMesh" id=11]
+
+[sub_resource type="ShaderMaterial" id=12]
+
+[sub_resource type="CapsuleShape" id=13]
 
 [node name="Spatial" type="Spatial"]
 
@@ -97,3 +104,16 @@ transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0.821672, 0 )
 light_color = Color( 0.980392, 0.756863, 0.329412, 1 )
 shadow_enabled = true
 omni_range = 6.32598
+
+[node name="enemyBaseModel" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.05642, 2.67214, 0 )
+
+[node name="Spatial2" type="Spatial" parent="enemyBaseModel"]
+
+[node name="CSGMesh" type="CSGMesh" parent="enemyBaseModel/Spatial2"]
+mesh = SubResource( 11 )
+material = SubResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="enemyBaseModel"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.05642, 6.5953e-08, 1.50883 )
+shape = SubResource( 13 )
