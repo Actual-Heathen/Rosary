@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/T_Grass.jpg-0a3440a914c2577fe74024e02213e94b.s3tc.stex"
-path.etc2="res://.import/T_Grass.jpg-0a3440a914c2577fe74024e02213e94b.etc2.stex"
+path.s3tc="res://.import/T_GrassyStone.jpg-c9fa43b1bc0c2941a592192068e5a202.s3tc.stex"
+path.etc2="res://.import/T_GrassyStone.jpg-c9fa43b1bc0c2941a592192068e5a202.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://materials/T_Grass.jpg"
-dest_files=[ "res://.import/T_Grass.jpg-0a3440a914c2577fe74024e02213e94b.s3tc.stex", "res://.import/T_Grass.jpg-0a3440a914c2577fe74024e02213e94b.etc2.stex" ]
+source_file="res://textures/T_GrassyStone.jpg"
+dest_files=[ "res://.import/T_GrassyStone.jpg-c9fa43b1bc0c2941a592192068e5a202.s3tc.stex", "res://.import/T_GrassyStone.jpg-c9fa43b1bc0c2941a592192068e5a202.etc2.stex" ]
 
 [params]
 
