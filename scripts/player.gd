@@ -152,7 +152,9 @@ func _physics_process(delta):
 		dashing = false
 		dashTime = 0
 	
-	#if sprite.animation = "dash":
+	if sprite.animation == "dash":
+		dhb.disabled = false
+		lrhb.disabled = true
 
 	
 	#Vertical velocity
