@@ -154,3 +154,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.05779, 0 )
 shape = SubResource( 4 )
 
 [node name="Enemy" parent="Navigation" instance=ExtResource( 5 )]
+
+[node name="Enemy2" parent="Navigation" instance=ExtResource( 5 )]
