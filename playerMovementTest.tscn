@@ -134,4 +134,16 @@ stream = ExtResource( 18 )
 [node name="girlMusic" parent="player/MusicPlayer" index="1"]
 stream = ExtResource( 17 )
 
+[node name="SM_Tree2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6055, 94.7563, 95.8766 )
+
+[node name="SM_Tree3" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.76065 )
+
+[node name="SM_Tree" parent="SM_Tree3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.8796, -0.00710237, 5.66317 )
+
+[node name="SM_Tree4" parent="." instance=ExtResource( 2 )]
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, -2.25976, -0.00705171, 8.43681 )
+
 [editable path="player/MusicPlayer"]

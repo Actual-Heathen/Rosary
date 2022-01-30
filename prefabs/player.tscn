@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=2]
+[gd_scene load_steps=73 format=2]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Idle_Rosy.png" type="Texture" id=2]
@@ -347,6 +347,10 @@ height = 1.42955
 [sub_resource type="BoxShape" id=66]
 extents = Vector3( 1.10146, 0.316324, 1 )
 
+[sub_resource type="CylinderMesh" id=69]
+
+[sub_resource type="SpatialMaterial" id=70]
+
 [node name="player" type="KinematicBody"]
 pause_mode = 2
 script = ExtResource( 1 )
@@ -379,8 +383,14 @@ transform = Transform( 0.00921523, -1.99998, -4.76833e-08, 1.99998, 0.00921523, 
 transform = Transform( 1, -2.71316e-22, 0, -2.71316e-22, 1, 0, 0, 4.9738e-14, 1, -0.101528, 0.298093, 2.84284e-08 )
 shape = SubResource( 65 )
 
-[node name="Area" type="Area" parent="."]
+[node name="dash" type="Area" parent="."]
 
-[node name="CollisionShape" type="CollisionShape" parent="Area"]
+[node name="CollisionShape" type="CollisionShape" parent="dash"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00511, 0.662589, -0.0685371 )
 shape = SubResource( 66 )
+
+[node name="CSGMesh2" type="CSGMesh" parent="."]
+transform = Transform( 0.731391, 0, 0, 0, 0.0230747, -1.30113, 0, 0.305327, 0.00541479, 0, 0.91866, 0 )
+cast_shadow = 3
+mesh = SubResource( 69 )
+material = SubResource( 70 )
