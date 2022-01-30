@@ -15,24 +15,24 @@ onready var sprite = $AnimatedSprite3D
 onready var timer = get_node("Timer")
 var enemyCanAttack = 'Y'
 var startingPosition
-var velocity = Vector3.ZERO
+
 
 func _physics_process(delta):
-	velocity.y -= fall_acceleration * delta
+
 	if (translation.distance_to(player.global_transform.origin)>chaseRadius && translation.distance_to(startingPosition)<chaseRadius):
 		var patrolDir = (getRoamingPosition() - global_transform.origin).normalized() 
-		patrolDir.y = velocity.y
+		patrolDir.y = fall_acceleration * delta
 		move_and_slide(patrolDir * botSpeed)
 
 	elif (translation.distance_to(player.global_transform.origin)<chaseRadius && translation.distance_to(player.global_transform.origin)>attackRadius):
 		var direction = (player.global_transform.origin - global_transform.origin).normalized()
-		direction.y = velocity.y
+		direction.y = fall_acceleration * delta
 		move_and_slide(direction * botSpeed)
 
 	elif(translation.distance_to(player.global_transform.origin)<attackRadius):
 		var direction = (player.global_transform.origin - global_transform.origin).normalized()
 		attack()
-		direction.y = velocity.y
+		direction.y = fall_acceleration * delta
 		move_and_slide(direction * botSpeed)
 
 	else:
@@ -49,10 +49,6 @@ func attack():
 		sprite.animation = 'Patrol'
 		timer.start()
 
-func _on_body_body_entered(body):
-	if body.name == "player":
-		body.HP -= enemyDmg
-
 func getRandomDir():
 	var randomDirection = Vector3(rand_range(-1, 1),0,rand_range(-1, 1))
 	return randomDirection
@@ -64,7 +60,6 @@ func getRoamingPosition():
 func _ready():
 	timer.set_wait_time(enemyAttackFreq)
 	startingPosition = global_transform.origin
-
 
 func die():
 	queue_free()
