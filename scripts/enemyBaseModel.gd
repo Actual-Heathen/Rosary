@@ -1,9 +1,9 @@
 extends KinematicBody
 
-export var botSpeed = 5
+export var botSpeed = 15
 export var botOffset = Vector3(5,0,5)
 var velocity = Vector3(botSpeed,0,5)
-const WALK_SPEED = 100
+
 const GRAVITY = 600
 
 #var health = 5
@@ -21,7 +21,7 @@ var initialPos = translation
 func _physics_process(delta):
 	if player:
 		var direction = (player.global_transform.origin - self.global_transform.origin).normalized()
-		move_and_slide(direction * WALK_SPEED)
+		move_and_slide(direction * botSpeed)
 
 		for i in get_slide_count():
 			var collision = get_slide_collision(i)
