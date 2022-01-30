@@ -70,7 +70,7 @@ func _physics_process(delta):
 	
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
-	$Pivot.look_at(translation + direction, Vector3.UP)
+	#$Pivot.look_at(translation + direction, Vector3.UP)
 	if sprite.animation != "dash" || sprite.frame > 6:
 		if direction == Vector3.ZERO:
 			sprite.animation = "idle"
