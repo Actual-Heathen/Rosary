@@ -13,6 +13,7 @@ var dashCount = 0;
 var timerMax = 5
 var timer = timerMax
 var ticking = false
+onready var sprite = $CSGMesh
 
 var dust = preload("res://prefabs/dashparticle.tscn")
 
@@ -21,14 +22,20 @@ func _physics_process(delta):
 	velocity.y -= fall_acceleration * delta
 	direction = Vector3.ZERO
 	
-	if Input.is_action_pressed("right"):
-		direction.x -= 1
-	elif Input.is_action_pressed("left"):
-		direction.x +=1
+	
 	if Input.is_action_pressed(("forward")):
 		direction.z += 1
+		sprite.flip_h = false
 	elif Input.is_action_pressed("back"):
 		direction.z -= 1
+		sprite.flip_h = true
+	if Input.is_action_pressed("right"):
+		direction.x -= 1
+		sprite.flip_h = true
+	elif Input.is_action_pressed("left"):
+		direction.x +=1
+		sprite.flip_h = false
+	
 	
 	if direction.x == -1:
 		if direction.z == -1:
@@ -52,6 +59,9 @@ func _physics_process(delta):
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
 		$Pivot.look_at(translation + direction, Vector3.UP)
+		sprite.animation = "walking"
+	if direction == Vector3.ZERO:
+		sprite.animation = "idle"
 	
 	
 	
