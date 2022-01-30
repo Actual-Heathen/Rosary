@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/enemyBaseModel.gd" type="Script" id=1]
+
+[sub_resource type="CapsuleMesh" id=6]
+
+[sub_resource type="Skin" id=7]
+
+[sub_resource type="CapsuleShape" id=8]
+
+[node name="Enemy" type="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -7.9113, 1.81436, 0.5282 )
+script = ExtResource( 1 )
+botOffset = Vector3( -5, 0, 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 6 )
+skin = SubResource( 7 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 8 )
