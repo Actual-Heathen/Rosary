@@ -5,9 +5,10 @@
 [node name="floor1" type="Spatial"]
 
 [node name="Spatial" parent="." instance=ExtResource( 1 )]
+exit_scene = "res://scenes/floor2.tscn"
 width = 5
 height = 5
-density = 20
+density = 10
 room_x = 80
 room_y = 80
 
