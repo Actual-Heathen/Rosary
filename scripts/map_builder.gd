@@ -10,7 +10,14 @@ var start_y
 var last_x
 var last_y
 export(int) var room_x
-export(int) var room_y 
+export(int) var room_y
+
+const decor_count = 3
+const decors : Array = [
+	preload("res://prefabs/SM_Tree.tscn"),
+	preload("res://prefabs/SM_TreeStump.tscn"),
+	preload("res://prefabs/SM_Stained_Glass.tscn")
+	]
 
 func _ready():
 	matrix_gen() #create the 2d matrix with 'width' and 'height'
@@ -188,7 +195,7 @@ func spawn_baddies():
 						add_child(cur_enemy)
 						cur_enemy.translation = Vector3((x*room_x)-(room_x/2) + randi() %room_y,1,(x*room_y)-(room_y/2) + randi() %room_y)
 						if(randi() % 3 == 0):
-							print("tree")
+							decor = decors[randi() % decor_count]
 							cur_decor = decor.instance()
 							add_child(cur_decor)
 							cur_decor.translation = Vector3((x*room_x)-(room_x/2) + randi() %room_y,1,(x*room_y)-(room_y/2) + randi() %room_y)
