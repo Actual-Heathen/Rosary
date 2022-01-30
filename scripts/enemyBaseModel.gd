@@ -7,6 +7,7 @@ export var chaseRadius = 10
 export var enemyHP = 100
 export var attackRadius = 3
 export var enemyAttackFreq = 1
+export var enemyDmg = 20
 export (String) var player_path = '../player'
 
 onready var player = get_node(player_path)
@@ -46,7 +47,7 @@ func attack():
 
 func _on_body_body_entered(body):
 	if body.name == "player":
-		body.HP -= 20
+		body.HP -= enemyDmg
 
 func getRandomDir():
 	var randomDirection = Vector3(rand_range(-1, 1),0,rand_range(-1, 1))
