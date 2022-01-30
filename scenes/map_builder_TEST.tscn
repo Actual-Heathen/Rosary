@@ -7,12 +7,10 @@
 [node name="Spatial" parent="." instance=ExtResource( 1 )]
 width = 5
 height = 5
-density = 50
+density = 20
+room_x = 80
+room_y = 80
 
 [node name="OmniLight" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.45962, 5.89658, 7.68294 )
-omni_range = 24.1019
-
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.19669, 3.67574, 13.8236 )
-current = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3697, 33.6079, -4.47994 )
+omni_range = 99999.0
