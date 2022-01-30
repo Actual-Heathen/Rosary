@@ -21,24 +21,25 @@ func _physics_process(delta):
 
 	if (translation.distance_to(player.global_transform.origin)>chaseRadius && translation.distance_to(startingPosition)<chaseRadius):
 		var patrolDir = (getRoamingPosition() - global_transform.origin).normalized() 
-		patrolDir.y = fall_acceleration * delta
+		patrolDir.y = -fall_acceleration * delta
 		move_and_slide(patrolDir * botSpeed)
 
 	elif (translation.distance_to(player.global_transform.origin)<chaseRadius && translation.distance_to(player.global_transform.origin)>attackRadius):
 		var direction = (player.global_transform.origin - global_transform.origin).normalized()
-		direction.y = fall_acceleration * delta
+		direction.y = -fall_acceleration * delta
 		move_and_slide(direction * botSpeed)
 
 	elif(translation.distance_to(player.global_transform.origin)<attackRadius):
 		var direction = (player.global_transform.origin - global_transform.origin).normalized()
 		attack()
-		direction.y = fall_acceleration * delta
+		direction.y = -fall_acceleration * delta
 		move_and_slide(direction * botSpeed)
 
 	else:
 		startingPosition = global_transform.origin
 
 	if (enemyHP <= 0):
+		sprite.animation = 'Dead'
 		die()
 
 func attack():
