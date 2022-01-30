@@ -2,17 +2,18 @@ extends KinematicBody
 
 export var botSpeed = 15
 
-export var startingPosition = Vector3.ZERO
+
 export var chaseRadius = 10
 export var enemyHP = 100
 export var attackRadius = 3
-export (String) var player_path = '../player'
 export var enemyAttackFreq = 1
+export (String) var player_path = '../player'
 
 onready var player = get_node(player_path)
 onready var sprite = $AnimatedSprite3D
 onready var timer = get_node("Timer")
 var enemyCanAttack = 'Y'
+var startingPosition
 
 func _physics_process(delta):
 	if (translation.distance_to(player.global_transform.origin)>chaseRadius && translation.distance_to(startingPosition)<chaseRadius):
@@ -30,9 +31,7 @@ func _physics_process(delta):
 		move_and_slide(direction * botSpeed)
 
 	else:
-		var backToSpawnDir = (startingPosition - global_transform.origin).normalized() 
-		backToSpawnDir.y = 0
-		move_and_slide(backToSpawnDir* botSpeed)
+		startingPosition = global_transform.origin
 
 	if (enemyHP <= 0):
 		die()
@@ -42,11 +41,10 @@ func attack():
 	if enemyCanAttack == 'Y':
 		player.HP -= 20
 		enemyCanAttack = 'N'
-
 		sprite.animation = 'Patrol'
 		timer.start()
-func _on_body_body_entered(body):
 
+func _on_body_body_entered(body):
 	if body.name == "player":
 		body.HP -= 20
 
@@ -61,7 +59,7 @@ func getRoamingPosition():
 func _ready():
 	timer.set_wait_time(enemyAttackFreq)
 	startingPosition = global_transform.origin
-	pass # Replace with function body.
+
 
 func die():
 	queue_free()
