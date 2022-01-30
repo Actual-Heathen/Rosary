@@ -132,13 +132,22 @@ func crop_matrix():
 #create dynamic_room children in the correct spots
 func place_rooms():
 	var room = preload("res://prefabs/dynamic_room.tscn")
+	var enemy = preload("res://prefabs/enemyBaseModel.tscn")
 	var cur_room
+	var cur_enemy
 	for x in range(width):
 		for y in range(height):
 			if maptrix[x][y] >= 1:
 				cur_room = room.instance()
 				add_child(cur_room)
 				cur_room.translation = Vector3(x*room_x,0,y*room_y)
+
+				if (!(x == start_x && y == start_y)):
+					if (!(x == last_x && y == last_y)):
+						cur_enemy = enemy.instance()
+						add_child(cur_enemy)
+						cur_enemy.translation = Vector3(x*room_x,1,y*room_y)
+
 				if x+1 < width  && maptrix[x+1][y] == 2:
 					cur_room.right_wall = true
 				if x-1 > 0      && maptrix[x-1][y] == 2:
