@@ -30,6 +30,7 @@ func _ready():
 	place_rooms() #create dynamic_room children in the correct spots
 	spawn_player()
 	spawn_exit()
+	spawn_baddies()
 
 
 #create the 2d matrix with 'width' and 'height'
@@ -132,22 +133,13 @@ func crop_matrix():
 #create dynamic_room children in the correct spots
 func place_rooms():
 	var room = preload("res://prefabs/dynamic_room.tscn")
-	var enemy = preload("res://prefabs/Enemy.tscn")
 	var cur_room
-	var cur_enemy
 	for x in range(width):
 		for y in range(height):
 			if maptrix[x][y] >= 1:
 				cur_room = room.instance()
 				add_child(cur_room)
 				cur_room.translation = Vector3(x*room_x,0,y*room_y)
-
-				if (!(x == start_x && y == start_y)):
-					if (!(x == last_x && y == last_y)):
-						cur_enemy = enemy.instance()
-						add_child(cur_enemy)
-						cur_enemy.translation = Vector3(x*room_x,1,y*room_y)
-
 				if x+1 < width  && maptrix[x+1][y] == 2:
 					cur_room.right_wall = true
 				if x-1 > 0      && maptrix[x-1][y] == 2:
@@ -173,7 +165,33 @@ func spawn_exit():
 	add_child(exit)
 	exit.path_to_scene  = (exit_scene)
 	exit.translation = Vector3(last_x*room_x,1,last_y*room_y)
-				
+
+# spawn baddies in rooms
+func spawn_baddies():
+	randomize()
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+
+	#var enemy = preload("res://prefabs/Enemy.tscn")
+	var enemy = preload("res://prefabs/enemyBaseModel.tscn")
+	var decor = preload("res://prefabs/SM_Tree.tscn")
+	var cur_enemy
+	var cur_decor
+	for x in range(width):
+		for y in range(height):
+			if maptrix[x][y] >= 1:
+				if (!(x == start_x && y == start_y)):
+					if (!(x == last_x && y == last_y)):
+						cur_enemy = enemy.instance()
+						add_child(cur_enemy)
+						cur_enemy.translation = Vector3((x*room_x)-(room_x/2) + randi() %room_y,1,(x*room_y)-(room_y/2) + randi() %room_y)
+						if(randi() % 3 == 0):
+							print("tree")
+							cur_decor = decor.instance()
+							add_child(cur_decor)
+							cur_decor.translation = Vector3((x*room_x)-(room_x/2) + randi() %room_y,1,(x*room_y)-(room_y/2) + randi() %room_y)
+							
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
