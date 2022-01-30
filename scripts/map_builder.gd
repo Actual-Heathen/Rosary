@@ -139,6 +139,15 @@ func place_rooms():
 				cur_room = room.instance()
 				add_child(cur_room)
 				cur_room.translation = Vector3(x*room_x,0,y*room_y)
+				if x+1 < width  && maptrix[x+1][y] == 2:
+					cur_room.right_wall = true
+				if x-1 > 0      && maptrix[x-1][y] == 2:
+					cur_room.left_wall = true
+				if y+1 < height && maptrix[x][y+1] == 2:
+					cur_room.top_wall = true
+				if y-1 > 0      && maptrix[x][y-1] == 2:
+					cur_room.bottom_wall = true
+
 
 # spawn the player at the starting room
 func spawn_player():
