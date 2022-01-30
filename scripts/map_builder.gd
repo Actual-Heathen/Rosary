@@ -5,6 +5,8 @@ export(int) var width
 export(int) var height
 export(int) var density
 var maptrix = []
+var start_x
+var start_y
 export(int) var room_x
 export(int) var room_y 
 
@@ -21,8 +23,10 @@ func _ready():
 	crop_matrix() #crop everything off that the player cannot access 
 	print("C R O P P E D")
 	print_matrix() #print out the elements of the matrix for debugging
+
  #now that the matrix is complete, time to build the rooms based on the matrix
 	place_rooms() #create dynamic_room children in the correct spots
+	spawn_player()
 
 
 #create the 2d matrix with 'width' and 'height'
@@ -87,6 +91,8 @@ func open_matrix():
 		x = randi() % width 
 		y = randi() % height
 	maptrix[x][y] = 2
+	start_x = x
+	start_y = y
 
 #remove inacessable rooms
 func crop_matrix():
@@ -131,10 +137,13 @@ func place_rooms():
 				add_child(cur_room)
 				cur_room.translation = Vector3(x*room_x,0,y*room_y)
 
-				
-				
-	
-
+# spawn the player at the starting room
+func spawn_player():
+	var player_prefab = preload("res://prefabs/player.tscn")
+	var player = player_prefab.instance()
+	add_child(player)
+	player.translation = Vector3(start_x*room_x,50,start_y*room_y)
+	#player.translation = Vector3(0,0,0)
 
 				
 # Called every frame. 'delta' is the elapsed time since the previous frame.
