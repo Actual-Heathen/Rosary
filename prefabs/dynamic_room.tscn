@@ -3,14 +3,24 @@
 [ext_resource path="res://materials/stone.tres" type="Material" id=1]
 [ext_resource path="res://scripts/dynamic_room.gd" type="Script" id=2]
 
-[sub_resource type="ProceduralSky" id=5]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="BoxShape" id=2]
+
+[sub_resource type="CubeMesh" id=3]
+
+[sub_resource type="BoxShape" id=4]
+
+[sub_resource type="ProceduralSky" id=7]
+
 sky_top_color = Color( 0.32549, 0.403922, 0.45098, 1 )
 ground_horizon_color = Color( 0.384314, 0.278431, 0.184314, 1 )
 sun_color = Color( 1, 0.976471, 0.635294, 1 )
 
 [sub_resource type="Environment" id=6]
 background_mode = 2
-background_sky = SubResource( 5 )
+background_sky = SubResource( 7 )
 ambient_light_color = Color( 0.113725, 0.211765, 0.25098, 1 )
 
 [sub_resource type="NavigationMesh" id=7]

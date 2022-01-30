@@ -46,6 +46,7 @@ radius = 0.189719
 height = 1.75671
 
 [node name="SM_Tree" type="StaticBody"]
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0 )
 
 [node name="RootNode" type="Spatial" parent="."]
 

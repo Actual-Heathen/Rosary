@@ -19,7 +19,7 @@ var dashing = false
 onready var sprite = $CSGMesh
 var isSneaking = false
 onready var dhb = $longHit/CSGMesh2
-onready var lrhb = $Area/CollisionShape
+onready var lrhb = $dash/CollisionShape
 
 var dust = preload("res://prefabs/dashparticle.tscn")
 
@@ -155,7 +155,8 @@ func _physics_process(delta):
 	if sprite.animation == "dash":
 		dhb.disabled = false
 		lrhb.disabled = true
-
+	
+	print(HP)
 	
 	#Vertical velocity
 	
