@@ -3,33 +3,37 @@ extends KinematicBody
 export var botSpeed = 5
 export var botOffset = Vector3(5,0,5)
 var velocity = Vector3(botSpeed,0,5)
-const ACCEL = 5.0
-const DEACCEL = 20.0
-const MAX_SPEED = 2.0
-const ROT_SPEED = 1.0
+const WALK_SPEED = 100
+const GRAVITY = 600
 
+#var health = 5
 
-var prev_advance = false
-var dying = false
-var rot_dir = 4
-
+onready var player = get_node("../../player")
 onready var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * ProjectSettings.get_setting("physics/3d/default_gravity_vector")
 
+var initialPos = translation
+#func _physics_process(delta): 
+#	print(self.get_position_in_parent())
+#	if ((translation.x <= initialPos.x + botOffset.x) ||  (translation.z <= initialPos.z + botOffset.z)):
+#		print('----------------------------------------------------------------------------------')
+#		move_and_slide(velocity, Vector3(-5,0,5))
 
-func _physics_process(delta): 
+func _physics_process(delta):
+	if player:
+		var direction = (player.global_transform.origin - self.global_transform.origin).normalized()
+		move_and_slide(direction * WALK_SPEED)
+
+		for i in get_slide_count():
+			var collision = get_slide_collision(i)
+			# if collision.collider.name == "Player":
+			var object = collision.collider
+			if object.is_in_group("player"):
+#				object.die()
+				pass
 
 
-	print(translation)
+func _ready():
+	pass # Replace with function body.
 
-	if (translation.x <= 5):
-		print('----------------------------------------------------------------------------------')
-		move_and_slide(velocity, botOffset)
-	elif (translation.x > 5) :
-		print('************************************************************************************')
-		move_and_slide(-velocity, -botOffset)
-
-	#print(get_floor_normal())
-	#print('------')
-	
 func _die():
 	queue_free()
