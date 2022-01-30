@@ -8,6 +8,7 @@ export var enemyHP = 100
 export var attackRadius = 3
 
 onready var player = get_node("../../player")
+onready var timer = $Timer
 onready var sprite = $AnimatedSprite3D
 
 
@@ -26,6 +27,7 @@ func _physics_process(delta):
 		sprite.animation = 'Attack'
 		move_and_slide(direction * botSpeed)
 		player.HP -= 20
+
 		
 	else:
 		var backToSpawnDir = (startingPosition - global_transform.origin).normalized() 

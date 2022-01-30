@@ -41,3 +41,5 @@ shape = SubResource( 8 )
 frames = SubResource( 9 )
 animation = "Patrol"
 playing = true
+
+[node name="Timer" type="Timer" parent="."]
