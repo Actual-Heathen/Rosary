@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/The_Arch_Bishop_Returns.mp3-d5126f6879597b689a714a10fcc08d22.mp3str"
+
+[deps]
+
+source_file="res://audio/The_Arch_Bishop_Returns.mp3"
+dest_files=[ "res://.import/The_Arch_Bishop_Returns.mp3-d5126f6879597b689a714a10fcc08d22.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

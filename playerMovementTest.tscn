@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://prefabs/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://prefabs/SM_Tree.tscn" type="PackedScene" id=2]
@@ -15,6 +15,9 @@
 [ext_resource path="res://prefabs/SM_Column.tscn" type="PackedScene" id=13]
 [ext_resource path="res://prefabs/Arch.tscn" type="PackedScene" id=14]
 [ext_resource path="res://prefabs/Rock.tscn" type="PackedScene" id=15]
+[ext_resource path="res://prefabs/MusicPlayer.tscn" type="PackedScene" id=16]
+[ext_resource path="res://audio/Battle_Music_Draft_Drums_TBR.mp3" type="AudioStream" id=17]
+[ext_resource path="res://audio/The_Arch_Bishop_Returns.mp3" type="AudioStream" id=18]
 
 [sub_resource type="ProceduralSky" id=7]
 sky_top_color = Color( 0.279785, 0.340376, 0.375, 1 )
@@ -121,3 +124,14 @@ transform = Transform( 20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0
 [node name="player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.208626, 0 )
 mSpeed = 20
+
+[node name="MusicPlayer" parent="player" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.208626, 0 )
+
+[node name="monsterMusic" parent="player/MusicPlayer" index="0"]
+stream = ExtResource( 18 )
+
+[node name="girlMusic" parent="player/MusicPlayer" index="1"]
+stream = ExtResource( 17 )
+
+[editable path="player/MusicPlayer"]
