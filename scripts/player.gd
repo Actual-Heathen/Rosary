@@ -18,7 +18,8 @@ var dashTime = 0;
 var dashing = false
 onready var sprite = $CSGMesh
 var isSneaking = false
-
+onready var dhb = $longHit/CSGMesh2
+onready var lrhb = $Area/CollisionShape
 
 var dust = preload("res://prefabs/dashparticle.tscn")
 
@@ -27,7 +28,10 @@ func _physics_process(delta):
 	velocity.y -= fall_acceleration * delta
 	direction = Vector3.ZERO
 	
-	
+	if HP <= 0:
+		sprite.animation = "death"
+		canMove = false
+
 	if Input.is_action_pressed(("forward")):
 		direction.z += 1
 		sprite.flip_h = false
@@ -40,6 +44,9 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("left"):
 		direction.x +=1
 		sprite.flip_h = false
+	
+	if Input.is_action_just_pressed("attack"):
+		sprite.animation = "long"
 	
 	
 	if direction.x == -1:
@@ -145,11 +152,21 @@ func _physics_process(delta):
 		dashing = false
 		dashTime = 0
 	
+	#if sprite.animation = "dash":
+
+	
 	#Vertical velocity
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
+
+func _on_body_body_entered(dash,longHit):
+	print(dash.name)
+	if dash.name == "enemy":
+		dash.enemyHP -= 30
+	if longHit.name == "enemy":
+		longHit.enemyHP -= 20
 
 	 # Replace with function body.
 
