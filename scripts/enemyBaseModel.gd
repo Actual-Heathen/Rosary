@@ -1,22 +1,39 @@
 extends KinematicBody
 
+export var botSpeed = 5
+export var botOffset = Vector3(5,0,5)
+var velocity = Vector3(botSpeed,0,5)
+const WALK_SPEED = 100
+const GRAVITY = 600
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+#var health = 5
 
+onready var player = get_node("../../player")
+onready var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * ProjectSettings.get_setting("physics/3d/default_gravity_vector")
 
-# Called when the node enters the scene tree for the first time.
-#func _ready():
-#	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-var velocity = Vector3(100,0,0)
-
+var initialPos = translation
 #func _physics_process(delta): 
-	#move_and_slide(velocity, Vector3(0,-1,-1))
-	
+#	print(self.get_position_in_parent())
+#	if ((translation.x <= initialPos.x + botOffset.x) ||  (translation.z <= initialPos.z + botOffset.z)):
+#		print('----------------------------------------------------------------------------------')
+#		move_and_slide(velocity, Vector3(-5,0,5))
+
+func _physics_process(delta):
+	if player:
+		var direction = (player.global_transform.origin - self.global_transform.origin).normalized()
+		move_and_slide(direction * WALK_SPEED)
+
+		for i in get_slide_count():
+			var collision = get_slide_collision(i)
+			# if collision.collider.name == "Player":
+			var object = collision.collider
+			if object.is_in_group("player"):
+#				object.die()
+				pass
+
+
+func _ready():
+	pass # Replace with function body.
+
+func _die():
+	queue_free()
