@@ -20,8 +20,8 @@ const decors : Array = [
 	]
 const enemy_count=3
 const enemys : Array = [
-	preload("res://prefabs/Enemy.tscn"),
-	preload("res://prefabs/Enemy.tscn"),
+	preload("res://prefabs/Enemy_bishop.tscn"),
+	preload("res://prefabs/Enemy_demon.tscn"),
 	preload("res://prefabs/Enemy.tscn")
 	]
 
