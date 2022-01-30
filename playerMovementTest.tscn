@@ -73,6 +73,18 @@ material = SubResource( 5 )
 transform = Transform( 35.3553, 0, 35.3553, 0, 20, 0, -35.3553, 0, 35.3553, 0, -1.63629, 0 )
 shape = SubResource( 6 )
 
+[node name="StaticBody2" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.4024, 0, 107.084 )
+
+[node name="CSGMesh" type="CSGMesh" parent="StaticBody2"]
+transform = Transform( 35.3553, 0, 35.3553, 0, 50, 0, -35.3553, 0, 35.3553, 0, 0, 0 )
+mesh = SubResource( 1 )
+material = SubResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody2"]
+transform = Transform( 35.3553, 0, 35.3553, 0, 20, 0, -35.3553, 0, 35.3553, 0, -1.63629, 0 )
+shape = SubResource( 6 )
+
 [node name="SM_TreeStump" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2121, -0.28144, 22.522 )
 
@@ -107,3 +119,5 @@ transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, -22.0534, 4.49061, -14.6127
 transform = Transform( 20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0, -5.7844 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
+speed = 30
+mSpeed = 20
