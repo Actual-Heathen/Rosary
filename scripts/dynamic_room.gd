@@ -4,23 +4,23 @@ extends Spatial
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-onready var wall_left_mat = $wall1/MeshInstance
-onready var wall_right_mat = $wall2/MeshInstance
-onready var wall_top_mat = $wall3/MeshInstance
-onready var wall_bottom_mat = $wall4/MeshInstance
-onready var ground_mat = $ground/MeshInstance
+onready var wall_left_mat = $Navigation/nmi/wall1/MeshInstance
+onready var wall_right_mat = $Navigation/nmi/wall2/MeshInstance
+onready var wall_top_mat = $Navigation/nmi/wall3/MeshInstance
+onready var wall_bottom_mat = $Navigation/nmi/wall4/MeshInstance
+onready var ground_mat = $Navigation/nmi/ground/MeshInstance
 
-onready var wall_left_col = $wall1/CollisionShape
-onready var wall_right_col = $wall2/CollisionShape
-onready var wall_top_col = $wall3/CollisionShape
-onready var wall_bottom_col = $wall4/CollisionShape
-onready var ground_col = $ground/CollisionShape
+onready var wall_left_col = $Navigation/nmi/wall1/CollisionShape
+onready var wall_right_col = $Navigation/nmi/wall2/CollisionShape
+onready var wall_top_col = $Navigation/nmi/wall3/CollisionShape
+onready var wall_bottom_col = $Navigation/nmi/wall4/CollisionShape
+onready var ground_col = $Navigation/nmi/ground/CollisionShape
 
-onready var wall_left = $wall1
-onready var wall_right = $wall2
-onready var wall_top = $wall3
-onready var wall_bottom = $wall4
-onready var ground = $ground
+onready var wall_left = $Navigation/nmi/wall1
+onready var wall_right = $Navigation/nmi/wall2
+onready var wall_top = $Navigation/nmi/wall3
+onready var wall_bottom = $Navigation/nmi/wall4
+onready var ground = $Navigation/nmi/ground
 
 export (bool) var left_wall
 export (bool) var right_wall

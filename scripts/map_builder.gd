@@ -181,8 +181,8 @@ func spawn_baddies():
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 
-	#var enemy = preload("res://prefabs/Enemy.tscn")
-	var enemy = preload("res://prefabs/enemyBaseModel.tscn")
+	var enemy = preload("res://prefabs/Enemy.tscn")
+	#var enemy = preload("res://prefabs/enemyBaseModel.tscn")
 	var decor = preload("res://prefabs/SM_Tree.tscn")
 	var cur_enemy
 	var cur_decor
