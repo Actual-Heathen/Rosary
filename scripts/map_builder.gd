@@ -18,6 +18,12 @@ const decors : Array = [
 	preload("res://prefabs/SM_TreeStump.tscn"),
 	preload("res://prefabs/SM_Stained_Glass.tscn")
 	]
+const enemy_count=3
+const enemys : Array = [
+	preload("res://prefabs/Enemy_bishop.tscn"),
+	preload("res://prefabs/Enemy_demon.tscn"),
+	preload("res://prefabs/Enemy.tscn")
+	]
 
 func _ready():
 	matrix_gen() #create the 2d matrix with 'width' and 'height'
@@ -55,6 +61,8 @@ func randfill_matrix():
 	for x in range(width):
 		for y in range(height):
 			maptrix[x][y] = randi() % 101
+	maptrix[0][0] = 1
+	maptrix[0][1] = 1
 
 #print out the elements of the matrix for debugging
 func print_matrix():
@@ -191,6 +199,7 @@ func spawn_baddies():
 			if maptrix[x][y] >= 1:
 				if (!(x == start_x && y == start_y)):
 					if (!(x == last_x && y == last_y)):
+						enemy = enemys[randi() % enemy_count]
 						cur_enemy = enemy.instance()
 						add_child(cur_enemy)
 						cur_enemy.translation = Vector3((x*room_x)-(room_x/2) + randi() %room_y,1,(x*room_y)-(room_y/2) + randi() %room_y)
