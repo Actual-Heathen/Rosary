@@ -6,11 +6,13 @@ export var startingPosition = Vector3.ZERO
 export var chaseRadius = 10
 export var enemyHP = 100
 export var attackRadius = 3
+export (String) var player_path = '../player'
+export var enemyAttackFreq = 1
 
-onready var player = get_node("../../player")
-onready var timer = $Timer
+onready var player = get_node(player_path)
 onready var sprite = $AnimatedSprite3D
-
+onready var timer = get_node("Timer")
+var enemyCanAttack = 'Y'
 
 func _physics_process(delta):
 	if (translation.distance_to(player.global_transform.origin)>chaseRadius && translation.distance_to(startingPosition)<chaseRadius):
@@ -24,11 +26,9 @@ func _physics_process(delta):
 
 	elif(translation.distance_to(player.global_transform.origin)<attackRadius):
 		var direction = (player.global_transform.origin - global_transform.origin).normalized()
-		sprite.animation = 'Attack'
+		attack()
 		move_and_slide(direction * botSpeed)
-		player.HP -= 20
 
-		
 	else:
 		var backToSpawnDir = (startingPosition - global_transform.origin).normalized() 
 		backToSpawnDir.y = 0
@@ -37,8 +37,16 @@ func _physics_process(delta):
 	if (enemyHP <= 0):
 		die()
 
+func attack():
+	sprite.animation = 'Attack'
+	if enemyCanAttack == 'Y':
+		player.HP -= 20
+		enemyCanAttack = 'N'
+
+		sprite.animation = 'Patrol'
+		timer.start()
 func _on_body_body_entered(body):
-	print(body.name)
+
 	if body.name == "player":
 		body.HP -= 20
 
@@ -51,8 +59,13 @@ func getRoamingPosition():
 	return roamDir
 
 func _ready():
+	timer.set_wait_time(enemyAttackFreq)
 	startingPosition = global_transform.origin
 	pass # Replace with function body.
 
 func die():
 	queue_free()
+
+func timer_timeout():
+	enemyCanAttack = 'Y'
+	timer.set_wait_time(1)
