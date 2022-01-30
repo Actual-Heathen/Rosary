@@ -98,7 +98,7 @@ transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, 5.08865, -0.00709486, -16.0
 transform = Transform( 6.99738, 0, 7.14399, 0, 10, 0, -7.14399, 0, 6.99738, 12.0461, 6.23838, 31.8016 )
 
 [node name="SM_StoneWall" parent="." instance=ExtResource( 8 )]
-transform = Transform( 13.6527, 0, 14.6151, 0, 20, 0, -14.6151, 0, 13.6527, 44.8102, 6.82728, 25.0789 )
+transform = Transform( 56.5685, 0, 14.1421, 0, 20, 0, -56.5685, 0, 14.1421, 27.7324, -2.36524, 41.9661 )
 
 [node name="SM_Stained_Glass" parent="." instance=ExtResource( 9 )]
 transform = Transform( 13.6607, -14.6078, -6.38526e-07, 0, -8.74228e-07, 20, -14.6078, -13.6607, -5.97126e-07, 61.431, 6.84322, 9.61682 )
@@ -119,5 +119,4 @@ transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, -22.0534, 4.49061, -14.6127
 transform = Transform( 20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0, -5.7844 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-speed = 30
 mSpeed = 20
