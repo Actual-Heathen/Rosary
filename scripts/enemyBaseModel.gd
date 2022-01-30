@@ -2,7 +2,7 @@ extends KinematicBody
 
 export var botSpeed = 15
 
-
+export var fall_acceleration = 98
 export var chaseRadius = 10
 export var enemyHP = 100
 export var attackRadius = 3
@@ -15,20 +15,24 @@ onready var sprite = $AnimatedSprite3D
 onready var timer = get_node("Timer")
 var enemyCanAttack = 'Y'
 var startingPosition
+var velocity = Vector3.ZERO
 
 func _physics_process(delta):
+	velocity.y -= fall_acceleration * delta
 	if (translation.distance_to(player.global_transform.origin)>chaseRadius && translation.distance_to(startingPosition)<chaseRadius):
 		var patrolDir = (getRoamingPosition() - global_transform.origin).normalized() 
-		patrolDir.y = 0
+		patrolDir.y = velocity.y
 		move_and_slide(patrolDir * botSpeed)
 
 	elif (translation.distance_to(player.global_transform.origin)<chaseRadius && translation.distance_to(player.global_transform.origin)>attackRadius):
 		var direction = (player.global_transform.origin - global_transform.origin).normalized()
+		direction.y = velocity.y
 		move_and_slide(direction * botSpeed)
 
 	elif(translation.distance_to(player.global_transform.origin)<attackRadius):
 		var direction = (player.global_transform.origin - global_transform.origin).normalized()
 		attack()
+		direction.y = velocity.y
 		move_and_slide(direction * botSpeed)
 
 	else:
