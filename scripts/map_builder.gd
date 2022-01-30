@@ -5,6 +5,8 @@ export(int) var width
 export(int) var height
 export(int) var density
 var maptrix = []
+export(int) var room_x
+export(int) var room_y 
 
 func _ready():
 	matrix_gen() #create the 2d matrix with 'width' and 'height'
@@ -127,7 +129,7 @@ func place_rooms():
 			if maptrix[x][y] >= 1:
 				cur_room = room.instance()
 				add_child(cur_room)
-				cur_room.translation = Vector3(x*2,y*2,0)
+				cur_room.translation = Vector3(x*room_x,0,y*room_y)
 
 				
 				
