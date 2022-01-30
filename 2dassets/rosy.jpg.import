@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BloodSplatter.png-5987629338107f756b4c051a05a960b1.stex"
+path="res://.import/rosy.jpg-fa8754fb571ceec7aaf9c2383897996f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/BloodSplatter.png"
-dest_files=[ "res://.import/BloodSplatter.png-5987629338107f756b4c051a05a960b1.stex" ]
+source_file="res://2dassets/rosy.jpg"
+dest_files=[ "res://.import/rosy.jpg-fa8754fb571ceec7aaf9c2383897996f.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

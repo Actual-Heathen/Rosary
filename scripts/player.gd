@@ -1,19 +1,24 @@
 extends KinematicBody
 
-export var speed = 20
+export var wSpeed = 20
 export var mSpeed = 15
+var speed = 0
 export var isMonster = false
 var velocity = Vector3.ZERO
-export var boost = 10
+export var boost = 4
 export var fall_acceleration = 98
 export var canMove = true
 export var direction = Vector3.ZERO
 export var maxDash = 3
 var dashCount = 0;
-var timerMax = 5
+var timerMax = 7
 var timer = timerMax
 var ticking = false
+var dashTime = 0;
+var dashing = false
 onready var sprite = $CSGMesh
+var isSneaking = false
+
 
 var dust = preload("res://prefabs/dashparticle.tscn")
 
@@ -58,39 +63,61 @@ func _physics_process(delta):
 	
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
-		$Pivot.look_at(translation + direction, Vector3.UP)
-		sprite.animation = "walking"
-	if direction == Vector3.ZERO:
-		sprite.animation = "idle"
+	$Pivot.look_at(translation + direction, Vector3.UP)
+	if sprite.animation != "dash" || sprite.frame > 6:
+		if direction == Vector3.ZERO:
+			sprite.animation = "idle"
+		else:
+			sprite.animation = "walking"
 	
+	if isMonster:
+		speed = mSpeed
+		if dashing:
+			speed *= boost
+	else:
+		speed = wSpeed
+		if dashing:
+			speed *= boost
+		
 	
 	
 	if !isMonster:
 		
-		if Input.is_action_just_pressed("boost") && direction != Vector3.ZERO && canMove && timer > 0 && dashCount < maxDash:
-			velocity.x = direction.x*speed*boost
-			velocity.z = direction.z*speed*boost
+		if Input.is_action_just_pressed("boost") && direction != Vector3.ZERO && canMove && timer > 0 && dashCount < maxDash && !dashing:
+			velocity.x = direction.x*speed
+			velocity.z = direction.z*speed
 			velocity.y = 0
+			sprite.animation = "dash"
 			get_parent().add_child(dust_instance)
 			if dashCount == 0:
 				ticking = true
 			dashCount += 1
-			
+			dashing = true
+		elif dashing:
+			velocity.x = direction.x*speed
+			velocity.z = direction.z*speed
+			velocity.y = 0
 		else:
 			velocity.x = direction.x * speed
 			velocity.z = direction.z * speed
 	else:
-		if Input.is_action_just_pressed("boost") && direction != Vector3.ZERO && canMove && timer > 0 && dashCount < maxDash:
-			velocity.x = direction.x*mSpeed*boost
-			velocity.z = direction.z*mSpeed*boost
+		if Input.is_action_just_pressed("boost") && direction != Vector3.ZERO && canMove && timer > 0 && dashCount < maxDash && !dashing:
+			velocity.x = direction.x*speed
+			velocity.z = direction.z
 			velocity.y = 0;
+			sprite.animation = "dash"
 			get_parent().add_child(dust_instance)
 			if dashCount == 0:
 				ticking = true
 			dashCount += 1
+			dashing =true
+		elif dashing:
+			velocity.x = direction.x*speed
+			velocity.z = direction.z*speed
+			velocity.y = 0
 		else:
-			velocity.x = direction.x * mSpeed
-			velocity.z = direction.z * mSpeed
+			velocity.x = direction.x * speed
+			velocity.z = direction.z * speed
 			
 	if canMove:
 		if velocity.y > 3:
@@ -112,6 +139,11 @@ func _physics_process(delta):
 		dashCount = 0
 		ticking = false
 		timer = timerMax
+	if dashing:
+		dashTime += delta
+	if dashTime > .3:
+		dashing = false
+		dashTime = 0
 	
 	#Vertical velocity
 	
