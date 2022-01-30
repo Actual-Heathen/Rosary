@@ -11,6 +11,7 @@ onready var girl = $girlMusic
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	girl.playing = true
 	pass # Replace with function body.
 
 func _process(delta):
