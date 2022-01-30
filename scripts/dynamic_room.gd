@@ -55,10 +55,10 @@ func _ready():
 	wall_top_mat.visible = top_wall
 	wall_bottom_mat.visible = bottom_wall
 
-	wall_left_col.disabled = left_wall
-	wall_right_col.disabled = right_wall
-	wall_top_col.disabled = top_wall
-	wall_bottom_col.disabled = bottom_wall
+	wall_left_col.disabled = !left_wall
+	wall_right_col.disabled = !right_wall
+	wall_top_col.disabled = !top_wall
+	wall_bottom_col.disabled = !bottom_wall
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
