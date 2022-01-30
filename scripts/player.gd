@@ -1,5 +1,5 @@
 extends KinematicBody
-
+export var HP = 100
 export var wSpeed = 20
 export var mSpeed = 15
 var speed = 0

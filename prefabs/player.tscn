@@ -1,8 +1,7 @@
-[gd_scene load_steps=70 format=2]
+[gd_scene load_steps=71 format=2]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Idle_Rosy.png" type="Texture" id=2]
-[ext_resource path="res://prefabs/CameraMvmt.gd" type="Script" id=3]
 [ext_resource path="res://sprites/Walking_Rosy.png" type="Texture" id=4]
 [ext_resource path="res://sprites/Disintegrating_Rosy.png" type="Texture" id=5]
 [ext_resource path="res://sprites/LashingOut_Rosy.png" type="Texture" id=6]
@@ -12,6 +11,26 @@
 [ext_resource path="res://sprites/Dash_Rosy.png" type="Texture" id=10]
 
 [sub_resource type="CapsuleShape" id=2]
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 19
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 86, 86 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 19
+atlas = ExtResource( 2 )
+region = Rect2( 86, 0, 86, 86 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 19
+atlas = ExtResource( 2 )
+region = Rect2( 172, 0, 86, 86 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 19
+atlas = ExtResource( 2 )
+region = Rect2( 258, 0, 86, 86 )
 
 [sub_resource type="AtlasTexture" id=30]
 flags = 19
@@ -138,26 +157,6 @@ flags = 19
 atlas = ExtResource( 6 )
 region = Rect2( 258, 86, 86, 86 )
 
-[sub_resource type="AtlasTexture" id=22]
-flags = 19
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 86, 86 )
-
-[sub_resource type="AtlasTexture" id=23]
-flags = 19
-atlas = ExtResource( 2 )
-region = Rect2( 86, 0, 86, 86 )
-
-[sub_resource type="AtlasTexture" id=24]
-flags = 19
-atlas = ExtResource( 2 )
-region = Rect2( 172, 0, 86, 86 )
-
-[sub_resource type="AtlasTexture" id=25]
-flags = 19
-atlas = ExtResource( 2 )
-region = Rect2( 258, 0, 86, 86 )
-
 [sub_resource type="AtlasTexture" id=26]
 flags = 19
 atlas = ExtResource( 4 )
@@ -177,46 +176,6 @@ region = Rect2( 172, 0, 86, 86 )
 flags = 19
 atlas = ExtResource( 4 )
 region = Rect2( 258, 0, 86, 86 )
-
-[sub_resource type="AtlasTexture" id=49]
-flags = 19
-atlas = ExtResource( 10 )
-region = Rect2( 0, 0, 86, 86 )
-
-[sub_resource type="AtlasTexture" id=50]
-flags = 19
-atlas = ExtResource( 10 )
-region = Rect2( 86, 0, 86, 86 )
-
-[sub_resource type="AtlasTexture" id=51]
-flags = 19
-atlas = ExtResource( 10 )
-region = Rect2( 172, 0, 86, 86 )
-
-[sub_resource type="AtlasTexture" id=52]
-flags = 19
-atlas = ExtResource( 10 )
-region = Rect2( 258, 0, 86, 86 )
-
-[sub_resource type="AtlasTexture" id=53]
-flags = 19
-atlas = ExtResource( 10 )
-region = Rect2( 0, 86, 86, 86 )
-
-[sub_resource type="AtlasTexture" id=54]
-flags = 19
-atlas = ExtResource( 10 )
-region = Rect2( 86, 86, 86, 86 )
-
-[sub_resource type="AtlasTexture" id=55]
-flags = 19
-atlas = ExtResource( 10 )
-region = Rect2( 172, 86, 86, 86 )
-
-[sub_resource type="AtlasTexture" id=56]
-flags = 19
-atlas = ExtResource( 10 )
-region = Rect2( 258, 86, 86, 86 )
 
 [sub_resource type="AtlasTexture" id=57]
 flags = 19
@@ -298,8 +257,53 @@ flags = 19
 atlas = ExtResource( 7 )
 region = Rect2( 258, 86, 86, 86 )
 
+[sub_resource type="AtlasTexture" id=49]
+flags = 19
+atlas = ExtResource( 10 )
+region = Rect2( 0, 0, 86, 86 )
+
+[sub_resource type="AtlasTexture" id=50]
+flags = 19
+atlas = ExtResource( 10 )
+region = Rect2( 86, 0, 86, 86 )
+
+[sub_resource type="AtlasTexture" id=51]
+flags = 19
+atlas = ExtResource( 10 )
+region = Rect2( 172, 0, 86, 86 )
+
+[sub_resource type="AtlasTexture" id=52]
+flags = 19
+atlas = ExtResource( 10 )
+region = Rect2( 258, 0, 86, 86 )
+
+[sub_resource type="AtlasTexture" id=53]
+flags = 19
+atlas = ExtResource( 10 )
+region = Rect2( 0, 86, 86, 86 )
+
+[sub_resource type="AtlasTexture" id=54]
+flags = 19
+atlas = ExtResource( 10 )
+region = Rect2( 86, 86, 86, 86 )
+
+[sub_resource type="AtlasTexture" id=55]
+flags = 19
+atlas = ExtResource( 10 )
+region = Rect2( 172, 86, 86, 86 )
+
+[sub_resource type="AtlasTexture" id=56]
+flags = 19
+atlas = ExtResource( 10 )
+region = Rect2( 258, 86, 86, 86 )
+
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
+"frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
+"loop": true,
+"name": "idle",
+"speed": 6.0
+}, {
 "frames": [ SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
 "loop": false,
 "name": "Damage",
@@ -315,20 +319,10 @@ animations = [ {
 "name": "lash",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
-"loop": true,
-"name": "idle",
-"speed": 6.0
-}, {
 "frames": [ SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
 "loop": true,
 "name": "walking",
 "speed": 12.0
-}, {
-"frames": [ SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ) ],
-"loop": false,
-"name": "dash",
-"speed": 14.0
 }, {
 "frames": [ SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ) ],
 "loop": false,
@@ -339,7 +333,19 @@ animations = [ {
 "loop": false,
 "name": " long",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ) ],
+"loop": false,
+"name": "dash",
+"speed": 14.0
 } ]
+
+[sub_resource type="CylinderShape" id=65]
+radius = 0.364611
+height = 1.42955
+
+[sub_resource type="BoxShape" id=66]
+extents = Vector3( 1.10146, 0.443501, 1 )
 
 [node name="player" type="KinematicBody"]
 pause_mode = 2
@@ -357,11 +363,23 @@ transform = Transform( -1, 4.37114e-08, -7.57104e-08, 0, 0.866025, 0.5, 8.74228e
 projection = 1
 size = 32.5581
 far = 279.6
-script = ExtResource( 3 )
 
 [node name="CSGMesh" type="AnimatedSprite3D" parent="."]
 transform = Transform( 5, -2.84217e-14, -4.26326e-14, 1.42109e-14, 5, 0, 2.84217e-14, -2.38419e-07, 3, 0.203079, 1.82553, 0 )
 frames = SubResource( 7 )
-animation = "walking"
-frame = 1
+animation = " long"
+frame = 7
 playing = true
+
+[node name="longHit" type="Area" parent="."]
+transform = Transform( 0.00921523, -1.99998, -4.76833e-08, 1.99998, 0.00921523, 2.19703e-10, 1.13798e-14, -9.53676e-08, 1, 2.46124, 1.3351, -2.10837e-16 )
+
+[node name="CSGMesh2" type="CollisionShape" parent="longHit"]
+transform = Transform( 1, -2.71316e-22, 0, -2.71316e-22, 1, 0, 0, 4.9738e-14, 1, -0.101528, 0.298093, 2.84284e-08 )
+shape = SubResource( 65 )
+
+[node name="Area" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00511, 0.662589, -0.0685371 )
+shape = SubResource( 66 )

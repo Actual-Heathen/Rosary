@@ -9,8 +9,8 @@ exit_scene = "res://scenes/floor2.tscn"
 width = 5
 height = 5
 density = 10
-room_x = 80
-room_y = 80
+room_x = 40
+room_y = 40
 
 [node name="OmniLight" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3697, 33.6079, -4.47994 )
