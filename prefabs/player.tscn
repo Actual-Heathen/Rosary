@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://shader/flexible_toon.shader" type="Shader" id=2]
+[ext_resource path="res://prefabs/CameraMvmt.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleMesh" id=1]
 
@@ -42,7 +43,8 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0
 shape = SubResource( 2 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( -1, 4.37114e-08, -7.57104e-08, 0, 0.866025, 0.5, 8.74228e-08, 0.5, -0.866025, 0, 42.9548, -72.4026 )
+transform = Transform( -1, 4.37114e-08, -7.57104e-08, 0, 0.866025, 0.5, 8.74228e-08, 0.5, -0.866025, 0, 43, -72 )
 projection = 1
 size = 32.5581
 far = 279.6
+script = ExtResource( 3 )

@@ -5,7 +5,6 @@
 [ext_resource path="res://textures/T_Grass.jpg" type="Texture" id=3]
 [ext_resource path="res://prefabs/Arch.tscn" type="PackedScene" id=4]
 
-
 [sub_resource type="Environment" id=1]
 background_mode = 2
 
@@ -128,3 +127,17 @@ shape = SubResource( 4 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.133435, 2.29773, -12.6218 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.6147, 5.17046, 20.4333 )
+light_color = Color( 1, 0.756863, 0.298039, 1 )
+shadow_enabled = true
+omni_range = 19.5843
+omni_attenuation = 2.46229
+
+[node name="OmniLight2" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34.154, 3.96029, 20.2307 )
+light_color = Color( 1, 0.756863, 0.298039, 1 )
+shadow_enabled = true
+omni_range = 19.5843
+omni_attenuation = 2.46229
