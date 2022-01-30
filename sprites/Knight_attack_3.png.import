@@ -2,11 +2,16 @@
 
 importer="texture"
 type="StreamTexture"
-valid=false
+path="res://.import/Knight_attack_3.png-84f7ad23a2c0b4e20cd82ee286a0c529.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://2dassets/demon.jpg"
+source_file="res://sprites/Knight_attack_3.png"
+dest_files=[ "res://.import/Knight_attack_3.png-84f7ad23a2c0b4e20cd82ee286a0c529.stex" ]
+
 [params]
 
 compress/mode=0
