@@ -26,12 +26,13 @@ func _physics_process(delta):
 		sprite.animation = 'Attack'
 		move_and_slide(direction * botSpeed)
 		player.HP -= 20
+		
 	else:
 		var backToSpawnDir = (startingPosition - global_transform.origin).normalized() 
 		backToSpawnDir.y = 0
 		move_and_slide(backToSpawnDir* botSpeed)
 
-	if (enemyHP==0):
+	if (enemyHP <= 0):
 		die()
 
 func _on_body_body_entered(body):
