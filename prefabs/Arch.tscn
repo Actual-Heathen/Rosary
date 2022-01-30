@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://3dassets/Gray Material.material" type="Material" id=1]
 [ext_resource path="res://shader/flexible_toon.shader" type="Shader" id=2]
-[ext_resource path="res://textures/T_Stone.jpg" type="Texture" id=3]
+[ext_resource path="res://textures/Marble/T_Marble_BC.jpg" type="Texture" id=3]
+[ext_resource path="res://textures/Marble/T_Marble_R.jpg" type="Texture" id=4]
 
 [sub_resource type="BoxShape" id=5]
 extents = Vector3( 0.0294486, 0.0288764, 0.125428 )
@@ -31,7 +32,7 @@ shader_param/cuts = 3
 shader_param/wrap = 0.0
 shader_param/steepness = 1.0
 shader_param/use_attenuation = true
-shader_param/use_specular = false
+shader_param/use_specular = true
 shader_param/specular_strength = 1.0
 shader_param/specular_shininess = 16.0
 shader_param/use_rim = true
@@ -41,6 +42,7 @@ shader_param/use_ramp = false
 shader_param/use_borders = false
 shader_param/border_width = 0.01
 shader_param/albedo_texture = ExtResource( 3 )
+shader_param/specular_map = ExtResource( 4 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Take 001"

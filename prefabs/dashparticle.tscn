@@ -41,6 +41,7 @@ size = Vector3( 0.5, 0.5, 0.5 )
 
 [node name="Particles" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33626, 0.292505 )
+emitting = false
 amount = 100
 lifetime = 0.38
 one_shot = true

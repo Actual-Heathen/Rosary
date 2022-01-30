@@ -119,4 +119,5 @@ transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, -22.0534, 4.49061, -14.6127
 transform = Transform( 20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0, -5.7844 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.208626, 0 )
 mSpeed = 20
