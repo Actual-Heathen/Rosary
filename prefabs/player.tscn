@@ -1,29 +1,64 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
-[ext_resource path="res://shader/flexible_toon.shader" type="Shader" id=2]
-
-[sub_resource type="CapsuleMesh" id=1]
-
-[sub_resource type="ShaderMaterial" id=3]
-shader = ExtResource( 2 )
-shader_param/albedo = Color( 0.705882, 0.0941176, 0.0941176, 1 )
-shader_param/clamp_diffuse_to_max = false
-shader_param/cuts = 3
-shader_param/wrap = 0.0
-shader_param/steepness = 1.0
-shader_param/use_attenuation = true
-shader_param/use_specular = true
-shader_param/specular_strength = 1.0
-shader_param/specular_shininess = 16.0
-shader_param/use_rim = false
-shader_param/rim_width = 8.0
-shader_param/rim_color = Color( 1, 1, 1, 1 )
-shader_param/use_ramp = false
-shader_param/use_borders = false
-shader_param/border_width = 0.01
+[ext_resource path="res://sprites/Idle_Rosy.png" type="Texture" id=2]
+[ext_resource path="res://prefabs/CameraMvmt.gd" type="Script" id=3]
+[ext_resource path="res://sprites/Walking_Rosy.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape" id=2]
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 23
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 86, 129 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 23
+atlas = ExtResource( 2 )
+region = Rect2( 86, 0, 86, 129 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 23
+atlas = ExtResource( 2 )
+region = Rect2( 172, 0, 86, 129 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 23
+atlas = ExtResource( 2 )
+region = Rect2( 258, 0, 86, 129 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 23
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 86, 129 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 23
+atlas = ExtResource( 4 )
+region = Rect2( 86, 0, 86, 129 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 23
+atlas = ExtResource( 4 )
+region = Rect2( 172, 0, 86, 129 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 23
+atlas = ExtResource( 4 )
+region = Rect2( 258, 0, 86, 129 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "idle",
+"speed": 6.0
+}, {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "walking",
+"speed": 12.0
+} ]
 
 [node name="player" type="KinematicBody"]
 pause_mode = 2
@@ -32,17 +67,20 @@ fall_acceleration = 50
 
 [node name="Pivot" type="Spatial" parent="."]
 
-[node name="CSGMesh" type="CSGMesh" parent="Pivot"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0 )
-mesh = SubResource( 1 )
-material = SubResource( 3 )
-
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0 )
 shape = SubResource( 2 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( -1, 4.37114e-08, -7.57104e-08, 0, 0.866025, 0.5, 8.74228e-08, 0.5, -0.866025, 0, 42.9548, -72.4026 )
+transform = Transform( -1, 4.37114e-08, -7.57104e-08, 0, 0.866025, 0.5, 8.74228e-08, 0.5, -0.866025, 0, 43, -72 )
 projection = 1
 size = 32.5581
 far = 279.6
+script = ExtResource( 3 )
+
+[node name="CSGMesh" type="AnimatedSprite3D" parent="."]
+transform = Transform( 5, -2.84217e-14, -4.26326e-14, 1.42109e-14, 5, 0, 2.84217e-14, -2.38419e-07, 3, 0.203079, 0.709229, 0 )
+frames = SubResource( 7 )
+animation = "walking"
+frame = 2
+playing = true

@@ -1,22 +1,28 @@
 extends KinematicBody
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-#func _ready():
-#	pass # Replace with function body.
+export var botSpeed = 15
+export var botOffset = Vector3(5,0,5)
+var velocity = Vector3(botSpeed,0,5)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+onready var player = get_node("../../player")
 
-var velocity = Vector3(100,0,0)
+func _physics_process(delta):
+	if (translation.distance_to(player.global_transform.origin)<5):
+		var direction = (player.global_transform.origin - global_transform.origin).normalized()
+		move_and_slide(direction * botSpeed)
 
-#func _physics_process(delta): 
-	#move_and_slide(velocity, Vector3(0,-1,-1))
-	
+		for i in get_slide_count():
+			var collision = get_slide_collision(i)
+			# if collision.collider.name == "Player":
+			var object = collision.collider
+			if object.is_in_group("player"):
+				object.die()
+			
+
+
+func _ready():
+	pass # Replace with function body.
+
+func _die():
+	queue_free()

@@ -8,22 +8,22 @@ emission_ring_inner_radius = 0.0
 emission_ring_height = 1.0
 emission_ring_axis = Vector3( 0, 0, 1 )
 direction = Vector3( 0, 0, 1 )
-spread = 9.76
+spread = 2.0
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = 30.0
+initial_velocity = 100.0
 color = Color( 1, 0, 0, 1 )
 
 [sub_resource type="CubeMesh" id=2]
-size = Vector3( 1, 1, 1 )
+size = Vector3( 0.5, 0.5, 0.5 )
 
 [node name="dash" type="Spatial"]
 
 [node name="Particles" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33626, 0.292505 )
 amount = 100
-lifetime = 2.08
+lifetime = 0.38
 one_shot = true
-explosiveness = 1.0
+explosiveness = 0.93
 visibility_aabb = AABB( -27.6355, -5.15866, -76.6676, 55.271, 82.2841, 85.5911 )
 process_material = SubResource( 1 )
 draw_pass_1 = SubResource( 2 )
