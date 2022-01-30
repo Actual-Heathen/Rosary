@@ -2,7 +2,5 @@
 
 [ext_resource path="res://scripts/map_builder.gd" type="Script" id=1]
 
-[node name="Spatial" type="Spatial"]
+[node name="map_builder" type="Spatial"]
 script = ExtResource( 1 )
-width = 5
-height = 5
