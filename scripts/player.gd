@@ -1,30 +1,35 @@
 extends KinematicBody
-export var HP = 100
-export var wSpeed = 20
-export var mSpeed = 15
-var speed = 0
-export var isMonster = false
-var velocity = Vector3.ZERO
-export var boost = 4
+export var HP = 100 #player starting hp
+##speed and movement variables##
+export var wSpeed = 20     #girl walking speed
+export var mSpeed = 15     #monster state walking speed
+var speed = 0              #total speed value
+export var boost = 4       #boost multiplier
 export var fall_acceleration = 98
+export var direction = Vector3.ZERO #player direction
+var velocity = Vector3.ZERO  #player's actual velocity
+##various player states##
 export var canMove = true
-export var direction = Vector3.ZERO
+export var isMonster = false
 export var maxDash = 3
-var dashCount = 0;
-var timerMax = 7
-var timer = timerMax
-var ticking = false
-var dashTime = 0;
-var dashing = false
+var dashCount = 0; #how many dashes have been done resets with the timer
+var dashing = false #true while the player is dashing
+var isSneaking = false 
+
+var timerMax = 7 #timer reset value
+var timer = timerMax #dash count timer
+var ticking = false  #states if the timer is running
+var dashTime = 0;  #time while i dash modifies the time in animation
+##load objects##
 onready var sprite = $CSGMesh
-var isSneaking = false
 onready var dhb = $longHit/CSGMesh2
 onready var lrhb = $dash/CollisionShape
 
-var dust = preload("res://prefabs/dashparticle.tscn")
+var dust = preload("res://prefabs/dashparticle.tscn") #dust particle
 
 func _physics_process(delta):
 	var dust_instance = dust.instance()
+	
 	velocity.y -= fall_acceleration * delta
 	direction = Vector3.ZERO
 	
@@ -48,7 +53,7 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("attack"):
 			sprite.animation = "long"
 		
-		
+		##dust angle calculations##
 		if direction.x == -1:
 			if direction.z == -1:
 				dust_instance.rotate_y(45)
@@ -68,15 +73,15 @@ func _physics_process(delta):
 		
 		dust_instance.translation = translation 
 		
+		#normalize vectors#
 		if direction != Vector3.ZERO:
 			direction = direction.normalized()
-		#$Pivot.look_at(translation + direction, Vector3.UP)
-		if sprite.animation != "dash" || sprite.frame > 6:
-			if direction == Vector3.ZERO:
+		if direction == Vector3.ZERO:
 				sprite.animation = "idle"
-			else:
-				sprite.animation = "walking"
+		elif sprite.animation != "dash" || sprite.frame > 6: #change sprite to walking if not dashing and moving
+			sprite.animation = "walking"
 		
+		##speed calculations##
 		if isMonster:
 			speed = mSpeed
 			if dashing:
@@ -156,7 +161,6 @@ func _physics_process(delta):
 			dhb.disabled = false
 			lrhb.disabled = true
 	
-	print(HP)
 	
 	#Vertical velocity
 	
