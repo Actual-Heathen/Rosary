@@ -60,18 +60,20 @@ length = 3.33333
 [sub_resource type="ConvexPolygonShape" id=5]
 points = PoolVector3Array( 0.346373, 0.00867409, 0.0684341, 0.244862, 0.0276921, 0.0684341, 0.223773, 0.0276921, 0.119554, 0.186342, 0.0276921, 0.210093, 0.244862, 0.00867409, 0.286397, 0.346373, -0.00867952, 0.0684341, 0.346373, 0.00867409, -0.349561, 0.244862, 0.0276921, -0.349561, 0.127754, 0.0276921, 0.259023, 0.223773, 0.00867409, 0.291871, 0.244862, -0.00867952, 0.286397, 0.186342, -0.0276921, 0.210093, 0.223773, -0.0276921, 0.119554, 0.244862, -0.0276921, 0.0684341, 0.346373, -0.00867952, -0.349561, -0.244929, 0.0276921, -0.349561, -0.127822, 0.0276921, 0.259023, 0, 0.00867409, 0.349561, 0.223773, -0.00867952, 0.291871, 0.127754, -0.0276921, 0.259023, 0.244862, -0.0276921, -0.349561, -0.346373, 0.00867409, -0.349561, -0.244929, 0.0276921, 0.0684341, -0.244929, 0.00867409, 0.286397, -0.223841, 0.00867409, 0.291871, -0.186409, 0.00867409, 0.301521, -0.133043, 0.00867409, 0.315276, -0.186409, 0.0276921, 0.210093, 0, -0.00867952, 0.349561, -0.127822, -0.0276921, 0.259023, -0.244929, -0.0276921, -0.349561, -0.346373, 0.00867409, 0.0684341, -0.346373, -0.00867952, -0.349561, -0.223841, 0.0276921, 0.119554, -0.244929, -0.00867952, 0.286397, -0.223841, -0.00867952, 0.291871, -0.186409, -0.00867952, 0.301521, -0.133043, -0.00867952, 0.315276, -0.186409, -0.0276921, 0.210093, -0.244929, -0.0276921, 0.0684341, -0.346373, -0.00867952, 0.0684341, -0.223841, -0.0276921, 0.119554 )
 
-[node name="SM_Stained_Glass" type="StaticBody"]
-transform = Transform( 20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0, 0 )
+[node name="SM_Stained_Glass" type="Spatial"]
 
-[node name="RootNode" type="Spatial" parent="."]
+[node name="SM_Stained_Glass" type="StaticBody" parent="."]
+transform = Transform( 20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 6.84473, 0 )
 
-[node name="SM_Stained_Glass" type="MeshInstance" parent="RootNode"]
+[node name="RootNode" type="Spatial" parent="SM_Stained_Glass"]
+
+[node name="SM_Stained_Glass" type="MeshInstance" parent="SM_Stained_Glass/RootNode"]
 mesh = SubResource( 1 )
 material/0 = SubResource( 3 )
 material/1 = ExtResource( 2 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="RootNode"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SM_Stained_Glass/RootNode"]
 "anims/Take 001" = SubResource( 4 )
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
+[node name="CollisionShape" type="CollisionShape" parent="SM_Stained_Glass"]
 shape = SubResource( 5 )
