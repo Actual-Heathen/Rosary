@@ -91,8 +91,6 @@ func _physics_process(delta):
 			if dashing:
 				speed *= boost
 			
-		
-		print(dashCount)
 		if direction != Vector3.ZERO:
 			if !isMonster: #for monster movement calculations#
 				if Input.is_action_just_pressed("boost") && timer > 0 && dashCount < maxDash && !dashing:
