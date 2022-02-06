@@ -7,7 +7,7 @@ This is the version that was submitted as part of the 2022 Northeastern Universi
 # v0.1
 This is the currently in progress version
 
-## New Features
+### New Features
 player fixes  
 new levels! <br/>
 new sprites <br/>
