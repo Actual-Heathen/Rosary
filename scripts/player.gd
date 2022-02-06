@@ -36,7 +36,7 @@ func _physics_process(delta):
 	if HP <= 0:
 		sprite.animation = "death"
 		canMove = false
-	else:
+	elif canMove:
 		if Input.is_action_pressed(("forward")):
 			direction.z += 1
 			sprite.flip_h = false
@@ -92,58 +92,44 @@ func _physics_process(delta):
 				speed *= boost
 			
 		
-		
-		if !isMonster:
-			
-			if Input.is_action_just_pressed("boost") && direction != Vector3.ZERO && canMove && timer > 0 && dashCount < maxDash && !dashing:
-				velocity.x = direction.x*speed
-				velocity.z = direction.z*speed
-				velocity.y = 0
-				sprite.animation = "dash"
-				get_parent().add_child(dust_instance)
-				if dashCount == 0:
-					ticking = true
-				dashCount += 1
-				dashing = true
-			elif dashing:
-				velocity.x = direction.x*speed
-				velocity.z = direction.z*speed
-				velocity.y = 0
-			else:
-				velocity.x = direction.x * speed
-				velocity.z = direction.z * speed
-		else:
-			if Input.is_action_just_pressed("boost") && direction != Vector3.ZERO && canMove && timer > 0 && dashCount < maxDash && !dashing:
-				velocity.x = direction.x*speed
-				velocity.z = direction.z
-				velocity.y = 0;
-				sprite.animation = "dash"
-				get_parent().add_child(dust_instance)
-				if dashCount == 0:
-					ticking = true
-				dashCount += 1
-				dashing =true
-			elif dashing:
-				velocity.x = direction.x*speed
-				velocity.z = direction.z*speed
-				velocity.y = 0
-			else:
-				velocity.x = direction.x * speed
-				velocity.z = direction.z * speed
+		print(dashCount)
+		if direction != Vector3.ZERO:
+			if !isMonster: #for monster movement calculations#
+				if Input.is_action_just_pressed("boost") && timer > 0 && dashCount < maxDash && !dashing:
+					velocity.y = 0
+					sprite.animation = "dash"
+					get_parent().add_child(dust_instance)
+					if dashCount == 0: #start dash timer
+						ticking = true
+					dashCount += 1#increase dash counter
+					dashing = true #set dashing flag to true
+				elif dashing: #special dashing calculations
+					velocity.y = 0
+			else: #for normal movement calculations#
+				if Input.is_action_just_pressed("boost") && timer > 0 && dashCount < maxDash && !dashing:
+					velocity.y = 0;
+					sprite.animation = "dash"
+					get_parent().add_child(dust_instance)
+					if dashCount == 0: #start dash timer
+						ticking = true
+					dashCount += 1 #inc dash timer
+					dashing =true #set dash flag on
+				elif dashing: #dash calculations
+					velocity.y = 0
+				 #normal calculations
+		velocity.x = direction.x * speed
+		velocity.z = direction.z * speed * 2 #*2 to compensate for the perspective
 				
-		if canMove:
-			if velocity.y > 3:
-				velocity.y = 3
-			
-			velocity = move_and_slide(velocity, Vector3.UP)
-		else:
-			velocity.x = 0
-			velocity.z = 0
-			velocity = move_and_slide(velocity, Vector3.UP)
+		if velocity.y > 3: #velocity cap
+			velocity.y = 3
+		velocity = move_and_slide(velocity, Vector3.UP)
 		
-		if Input.is_action_just_pressed("monster"):
+		
+		if Input.is_action_just_pressed("monster"): #change to monster mode#
 			isMonster = !isMonster
 			
+		
+		#timer logic#
 		if ticking:
 			timer -= delta
 			
@@ -157,18 +143,20 @@ func _physics_process(delta):
 			dashing = false
 			dashTime = 0
 		
+		#hitbox enabling##
 		if sprite.animation == "dash":
 			dhb.disabled = false
 			lrhb.disabled = true
-	
-	
-	#Vertical velocity
-	
+	else:
+			velocity.x = 0
+			velocity.z = 0
+			velocity = move_and_slide(velocity, Vector3.UP)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 
-func _on_body_body_entered(dash,longHit):
+func _on_body_body_entered(dash,longHit):  ##for enemy damaging##  ####WIP####
 	print(dash.name)
 	if dash.name == "enemy":
 		dash.enemyHP -= 30

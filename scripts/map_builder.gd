@@ -148,7 +148,7 @@ func crop_matrix():
 #create dynamic_room children in the correct spots
 func place_rooms():
 	var room = preload("res://prefabs/dynamic_room.tscn")
-	var enemy = preload("res://prefabs/enemyBaseModel.tscn")
+	##var enemy = preload("res://prefabs/enemyBaseModel.tscn")
 
 	var cur_room
 	for x in range(width):
