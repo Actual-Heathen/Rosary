@@ -8,8 +8,8 @@ This is the version that was submitted as part of the 2022 Northeastern Universi
 This is the currently in progress version
 
 # New Features
-player fixes <br\>
-new levels! <br\>
-new sprites <br\>
-added HUD <br\>
-major bug fixes <br\>
+player fixes  
+new levels! <br/>
+new sprites <br/>
+added HUD <br/>
+major bug fixes <br/>
