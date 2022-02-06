@@ -27,7 +27,7 @@ extents = Vector3( 60.4581, 1, 42.0321 )
 [node name="Spatial2" type="Spatial"]
 
 [node name="scene_loader" parent="." instance=ExtResource( 2 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.721096, 0, 49.2512 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -28.6144, 0, 53.4572 )
 path_to_scene = "res://scenes/floor1.tscn"
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
@@ -41,7 +41,7 @@ shadow_enabled = true
 environment = SubResource( 1 )
 
 [node name="fench" type="Spatial" parent="."]
-transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -15.8483, 0, 18.235 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8483, 0, 18.235 )
 
 [node name="Arch" parent="fench" instance=ExtResource( 4 )]
 transform = Transform( 20, 0, 0, 0, -2.18557e-07, 5, 0, -5, -2.18557e-07, -5.40852, 0.0760365, -12.13 )
@@ -118,18 +118,15 @@ transform = Transform( 20, 0, 0, 0, -2.18557e-07, 5, 0, -5, -2.18557e-07, 28.092
 [node name="Arch12" parent="fench/fench" instance=ExtResource( 4 )]
 transform = Transform( 20, 0, 0, 0, -2.18557e-07, 5, 0, -5, -2.18557e-07, 11.2383, 0.0760365, 35.6289 )
 
-[node name="player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.133435, 2.29773, -12.6218 )
-
-[node name="OmniLight" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.6147, 5.17046, 20.4333 )
+[node name="OmniLight2" type="OmniLight" parent="fench"]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -14.3553, 3.96029, -11.5329 )
 light_color = Color( 1, 0.756863, 0.298039, 1 )
 shadow_enabled = true
 omni_range = 19.5843
 omni_attenuation = 2.46229
 
-[node name="OmniLight2" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34.154, 3.96029, 20.2307 )
+[node name="OmniLight" type="OmniLight" parent="fench"]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 34.8354, 5.17046, 37.9443 )
 light_color = Color( 1, 0.756863, 0.298039, 1 )
 shadow_enabled = true
 omni_range = 19.5843
@@ -151,3 +148,6 @@ material = SubResource( 4 )
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/floor"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.05779, 0 )
 shape = SubResource( 5 )
+
+[node name="player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 16.3776, 0.373237, 7.56152 )

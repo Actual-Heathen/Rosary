@@ -1,7 +1,8 @@
-[gd_scene load_steps=73 format=2]
+[gd_scene load_steps=74 format=2]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Idle_Rosy.png" type="Texture" id=2]
+[ext_resource path="res://prefabs/MusicPlayer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://sprites/Walking_Rosy.png" type="Texture" id=4]
 [ext_resource path="res://sprites/Disintegrating_Rosy.png" type="Texture" id=5]
 [ext_resource path="res://sprites/LashingOut_Rosy.png" type="Texture" id=6]
@@ -126,6 +127,46 @@ region = Rect2( 86, 172, 86, 86 )
 flags = 19
 atlas = ExtResource( 8 )
 region = Rect2( 172, 172, 86, 86 )
+
+[sub_resource type="AtlasTexture" id=57]
+flags = 19
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 86, 86 )
+
+[sub_resource type="AtlasTexture" id=58]
+flags = 19
+atlas = ExtResource( 9 )
+region = Rect2( 86, 0, 86, 86 )
+
+[sub_resource type="AtlasTexture" id=59]
+flags = 19
+atlas = ExtResource( 9 )
+region = Rect2( 172, 0, 86, 86 )
+
+[sub_resource type="AtlasTexture" id=60]
+flags = 19
+atlas = ExtResource( 9 )
+region = Rect2( 258, 0, 86, 86 )
+
+[sub_resource type="AtlasTexture" id=61]
+flags = 19
+atlas = ExtResource( 9 )
+region = Rect2( 0, 86, 86, 86 )
+
+[sub_resource type="AtlasTexture" id=62]
+flags = 19
+atlas = ExtResource( 9 )
+region = Rect2( 86, 86, 86, 86 )
+
+[sub_resource type="AtlasTexture" id=63]
+flags = 19
+atlas = ExtResource( 9 )
+region = Rect2( 172, 86, 86, 86 )
+
+[sub_resource type="AtlasTexture" id=64]
+flags = 19
+atlas = ExtResource( 9 )
+region = Rect2( 258, 86, 86, 86 )
 
 [sub_resource type="AtlasTexture" id=26]
 flags = 19
@@ -257,46 +298,6 @@ flags = 19
 atlas = ExtResource( 7 )
 region = Rect2( 258, 86, 86, 86 )
 
-[sub_resource type="AtlasTexture" id=57]
-flags = 19
-atlas = ExtResource( 9 )
-region = Rect2( 0, 0, 86, 86 )
-
-[sub_resource type="AtlasTexture" id=58]
-flags = 19
-atlas = ExtResource( 9 )
-region = Rect2( 86, 0, 86, 86 )
-
-[sub_resource type="AtlasTexture" id=59]
-flags = 19
-atlas = ExtResource( 9 )
-region = Rect2( 172, 0, 86, 86 )
-
-[sub_resource type="AtlasTexture" id=60]
-flags = 19
-atlas = ExtResource( 9 )
-region = Rect2( 258, 0, 86, 86 )
-
-[sub_resource type="AtlasTexture" id=61]
-flags = 19
-atlas = ExtResource( 9 )
-region = Rect2( 0, 86, 86, 86 )
-
-[sub_resource type="AtlasTexture" id=62]
-flags = 19
-atlas = ExtResource( 9 )
-region = Rect2( 86, 86, 86, 86 )
-
-[sub_resource type="AtlasTexture" id=63]
-flags = 19
-atlas = ExtResource( 9 )
-region = Rect2( 172, 86, 86, 86 )
-
-[sub_resource type="AtlasTexture" id=64]
-flags = 19
-atlas = ExtResource( 9 )
-region = Rect2( 258, 86, 86, 86 )
-
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
 "frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
@@ -312,6 +313,11 @@ animations = [ {
 "frames": [ SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
 "loop": false,
 "name": "Damage",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ) ],
+"loop": false,
+"name": "DemonFly",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
@@ -333,11 +339,6 @@ animations = [ {
 "loop": false,
 "name": " long",
 "speed": 5.0
-}, {
-"frames": [ SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ) ],
-"loop": false,
-"name": "DemonFly",
-"speed": 5.0
 } ]
 
 [sub_resource type="CylinderShape" id=65]
@@ -353,6 +354,7 @@ extents = Vector3( 1.10146, 0.316324, 1 )
 
 [node name="player" type="KinematicBody"]
 pause_mode = 2
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0 )
 script = ExtResource( 1 )
 fall_acceleration = 50
 
@@ -394,3 +396,5 @@ transform = Transform( 0.731391, 0, 0, 0, 0.0230747, -1.30113, 0, 0.305327, 0.00
 cast_shadow = 3
 mesh = SubResource( 69 )
 material = SubResource( 70 )
+
+[node name="MusicPlayer" parent="." instance=ExtResource( 3 )]

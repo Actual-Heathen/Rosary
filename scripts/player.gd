@@ -39,15 +39,19 @@ func _physics_process(delta):
 	elif canMove:
 		if Input.is_action_pressed(("forward")):
 			direction.z += 1
+			direction.x -= 1
 			sprite.flip_h = false
 		elif Input.is_action_pressed("back"):
 			direction.z -= 1
+			direction.x += 1
 			sprite.flip_h = true
 		if Input.is_action_pressed("right"):
 			direction.x -= 1
+			direction.z -= 1
 			sprite.flip_h = true
 		elif Input.is_action_pressed("left"):
 			direction.x +=1
+			direction.z += 1
 			sprite.flip_h = false
 		
 		if Input.is_action_just_pressed("attack"):
@@ -116,7 +120,7 @@ func _physics_process(delta):
 					velocity.y = 0
 				 #normal calculations
 		velocity.x = direction.x * speed
-		velocity.z = direction.z * speed * 2 #*2 to compensate for the perspective
+		velocity.z = direction.z * speed  #*2 to compensate for the perspective
 				
 		if velocity.y > 3: #velocity cap
 			velocity.y = 3

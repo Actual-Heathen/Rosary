@@ -202,12 +202,12 @@ func spawn_baddies():
 						enemy = enemys[randi() % enemy_count]
 						cur_enemy = enemy.instance()
 						add_child(cur_enemy)
-						cur_enemy.translation = Vector3((x*room_x)-(room_x/2) + randi() %room_y,1,(x*room_y)-(room_y/2) + randi() %room_y)
+						cur_enemy.translation = Vector3((x*room_x) + (randi() %room_x/2 - room_x/4),1,(y*room_y) + (randi() %room_y/2 - room_y/4))
 						if(randi() % 3 == 0):
 							decor = decors[randi() % decor_count]
 							cur_decor = decor.instance()
 							add_child(cur_decor)
-							cur_decor.translation = Vector3((x*room_x)-(room_x/2) + randi() %room_y,1,(x*room_y)-(room_y/2) + randi() %room_y)
+							cur_decor.translation = Vector3((x*room_x) + (randi() %room_x/2 - room_x/4),1,(y*room_y) + (randi() %room_y/2 - room_y/4))
 							
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
