@@ -76,24 +76,6 @@ func binary_matrixer():
 				maptrix[x][y] = 1
 			else:
 				maptrix[x][y] = 0
-				
-# snip nonconnecting rooms off 
-func snip_matrix():
-	var safe = false
-	for x in range(width):
-		for y in range(height):
-			if maptrix[x][y] == 1:
-				safe = false
-				if x+1 < width  && maptrix[x+1][y] == 1:
-					safe = true
-				if x-1 > 0      && maptrix[x-1][y] == 1:
-					safe = true
-				if y+1 < height && maptrix[x][y+1] == 1:
-					safe = true
-				if y-1 > 0      && maptrix[x][y-1] == 1:
-					safe = true
-				if safe == false:
-					maptrix[x][y] = 0
 
 #mark the starting room
 func open_matrix():
