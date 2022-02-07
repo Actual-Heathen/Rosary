@@ -179,7 +179,7 @@ func get_matrix_room_rand_pos(var x, var y):
 	randomize()
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-	return Vector3((x*room_x)-(room_x/2) + randi() %room_y,1,(x*room_y)-(room_y/2) + randi() %room_y)
+	return Vector3((x*room_x) + (randi() %room_x/2 - room_x/4),1,(y*room_y) + (randi() %room_y/2 - room_y/4))
 
 func get_random_enemy():
 	randomize()
