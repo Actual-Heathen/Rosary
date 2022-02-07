@@ -72,7 +72,7 @@ transform = Transform( 1.78258, 18.896, 6.30582, -5.14025, 6.55293, -18.1834, -1
 transform = Transform( 19.3185, 5.17638, 0, -5.17638, 19.3185, 0, 0, 0, 20, 2.85316, 0.0455885, 2.5289 )
 
 [node name="Cross" parent="." instance=ExtResource( 10 )]
-transform = Transform( -1, 0, 0.000890167, 0, 1, 0, -0.000890167, 0, -1, -0.804293, 9.495, -19.9861 )
+transform = Transform( -1, 0, 0.000890167, 0, 1, 0, -0.000890167, 0, -1, -0.804293, 10.489, -19.0636 )
 
 [node name="Rock" parent="." instance=ExtResource( 9 )]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 9.78107, 0.0455885, -10.144 )
