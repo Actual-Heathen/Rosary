@@ -22,11 +22,6 @@
 
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
-"frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "Attack",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "Patrol",
@@ -35,6 +30,11 @@ animations = [ {
 "frames": [ ExtResource( 12 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 13 ) ],
 "loop": false,
 "name": "Death",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Attack",
 "speed": 5.0
 } ]
 
@@ -60,5 +60,5 @@ playing = true
 
 [node name="Timer" type="Timer" parent="."]
 
-[connection signal="timeout" from="Timer" to="." method="timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="timer"]
+[connection signal="timeout" from="Timer" to="." method="timer_timeout"]
