@@ -9,6 +9,7 @@ var start_x
 var start_y
 var last_x
 var last_y
+var rng
 export(int) var room_x
 export(int) var room_y
 
@@ -26,6 +27,10 @@ const enemys : Array = [
 	]
 
 func _ready():
+	randomize()
+	rng = RandomNumberGenerator.new()
+	rng.randomize()
+
 	matrix_gen() #create the 2d matrix with 'width' and 'height'
 	randfill_matrix() #fill the matrix with numbers from 0 to 100
 	binary_matrixer() # turn matrix into binary form if the value is high enough
@@ -48,8 +53,6 @@ func matrix_gen():
 
 #fill the matrix with numbers from 0 to 100
 func randfill_matrix():
-	randomize()
-	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	for x in range(width):
 		for y in range(height):
@@ -94,9 +97,6 @@ func snip_matrix():
 
 #mark the starting room
 func open_matrix():
-	randomize()
-	var rng = RandomNumberGenerator.new()
-	rng.randomize()
 	var x = randi() % width 
 	var y = randi() % height
 	while maptrix[x][y] != 1:
@@ -176,21 +176,12 @@ func spawn_exit():
 	exit.translation = Vector3(last_x*room_x,1,last_y*room_y)
 
 func get_matrix_room_rand_pos(var x, var y):
-	randomize()
-	var rng = RandomNumberGenerator.new()
-	rng.randomize()
 	return Vector3((x*room_x) + (randi() %room_x/2 - room_x/4),1,(y*room_y) + (randi() %room_y/2 - room_y/4))
 
 func get_random_enemy():
-	randomize()
-	var rng = RandomNumberGenerator.new()
-	rng.randomize()
 	return enemys[randi() % enemy_count]
 
 func get_random_decor():
-	randomize()
-	var rng = RandomNumberGenerator.new()
-	rng.randomize()
 	return decors[randi() % decor_count]
 
 # spawn baddies in rooms
