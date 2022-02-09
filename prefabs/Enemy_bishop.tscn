@@ -19,6 +19,11 @@
 
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "Dead",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "Attack",
@@ -28,18 +33,15 @@ animations = [ {
 "loop": true,
 "name": "Patrol",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 10 ) ],
-"loop": false,
-"name": "Dead",
-"speed": 5.0
 } ]
 
 [node name="Enemy" type="KinematicBody"]
-transform = Transform( 0.44933, 0, 0, 0, -4.37114e-08, -1, 0, 0.44933, -1.96408e-08, -7.9113, 1.81436, 0.5282 )
+transform = Transform( 0.317724, -0.317724, 3.09086e-08, 0, -1.96408e-08, -1, 0.317724, 0.317724, -3.09086e-08, 0.0514884, 1.81436, 0.5282 )
 script = ExtResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 2.57364, 0, 0, 0, 1, -1.06581e-14, 0, -1.06581e-14, 1, 0, 0, 0 )
+cast_shadow = 3
 mesh = SubResource( 6 )
 skin = SubResource( 7 )
 material/0 = null
@@ -48,11 +50,12 @@ material/0 = null
 shape = SubResource( 8 )
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.31134e-08, 1, 0, -0.3, -4.37114e-08, 1.8941, 0, -0.031232 )
 frames = SubResource( 9 )
 animation = "Patrol"
 playing = true
 
 [node name="Timer" type="Timer" parent="."]
 
-[connection signal="timeout" from="Timer" to="." method="timer"]
 [connection signal="timeout" from="Timer" to="." method="timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="timer"]

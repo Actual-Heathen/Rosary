@@ -123,6 +123,8 @@ func crop_matrix():
 #create dynamic_room children in the correct spots
 func place_rooms():
 	var room = preload("res://prefabs/dynamic_room.tscn")
+	##var enemy = preload("res://prefabs/enemyBaseModel.tscn")
+
 
 	var cur_room
 	for x in range(width):
@@ -185,13 +187,16 @@ func spawn_baddies():
 						enemy = get_random_enemy()
 						cur_enemy = enemy.instance()
 						add_child(cur_enemy)
-						cur_enemy.translation = get_matrix_room_rand_pos(x,y)
+
+						cur_enemy.translation = Vector3((x*room_x) + (randi() %room_x/2 - room_x/4),1,(y*room_y) + (randi() %room_y/2 - room_y/4))
 
 						if(randi() % 3 == 0):
 							decor = get_random_decor()
 							cur_decor = decor.instance()
 							add_child(cur_decor)
-							cur_decor.translation = get_matrix_room_rand_pos(x,y)
+
+							cur_decor.translation = Vector3((x*room_x) + (randi() %room_x/2 - room_x/4),1,(y*room_y) + (randi() %room_y/2 - room_y/4))
+
 							
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
