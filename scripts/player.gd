@@ -26,7 +26,7 @@ onready var dhb = $longHit/CSGMesh2
 onready var lrhb = $dash/CollisionShape
 
 var dust = preload("res://prefabs/dashparticle.tscn") #dust particle
-var dust = preload("res://scenes/PauseMenu.tscn") #dust and mold
+var pause = preload("res://scenes/PauseMenu.tscn") #dust and mold
 
 
 func _physics_process(delta):
