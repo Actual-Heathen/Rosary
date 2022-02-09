@@ -26,9 +26,12 @@ onready var dhb = $longHit/CSGMesh2
 onready var lrhb = $dash/CollisionShape
 
 var dust = preload("res://prefabs/dashparticle.tscn") #dust particle
+var dust = preload("res://scenes/PauseMenu.tscn") #dust and mold
+
 
 func _physics_process(delta):
 	var dust_instance = dust.instance()
+	var pause_instance = pause.instance()
 	
 	velocity.y -= fall_acceleration * delta
 	direction = Vector3.ZERO
@@ -53,6 +56,10 @@ func _physics_process(delta):
 			direction.x +=1
 			direction.z += 1
 			sprite.flip_h = false
+		
+		if Input.is_action_just_pressed("pause"):
+			canMove = false
+			add_child(pause_instance)
 		
 		if Input.is_action_just_pressed("attack"):
 			sprite.animation = "long"
