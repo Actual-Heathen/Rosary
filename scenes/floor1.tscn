@@ -2,14 +2,14 @@
 
 [ext_resource path="res://prefabs/map_builder.tscn" type="PackedScene" id=1]
 
-[sub_resource type="ProceduralSky" id=5]
+[sub_resource type="ProceduralSky" id=7]
 sky_top_color = Color( 0.32549, 0.403922, 0.45098, 1 )
 ground_horizon_color = Color( 0.384314, 0.278431, 0.184314, 1 )
 sun_color = Color( 1, 0.976471, 0.635294, 1 )
 
 [sub_resource type="Environment" id=6]
 background_mode = 2
-background_sky = SubResource( 5 )
+background_sky = SubResource( 7 )
 ambient_light_color = Color( 0.113725, 0.211765, 0.25098, 1 )
 
 [node name="floor1" type="Spatial"]
@@ -26,6 +26,6 @@ room_y = 40
 environment = SubResource( 6 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( -0.996287, -0.0348532, 0.078726, -0.00398315, 0.932077, 0.362237, -0.0860038, 0.360579, -0.928755, 0, 0, 0 )
+transform = Transform( -0.996195, -0.0312338, 0.0813668, 0, 0.93358, 0.358368, -0.0871556, 0.357004, -0.930027, 0, 0, 0 )
 light_energy = 0.5
 shadow_enabled = true
