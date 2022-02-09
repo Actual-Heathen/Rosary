@@ -67,6 +67,7 @@ albedo_color = Color( 0, 0.968627, 1, 0.454902 )
 [node name="scene_loader" type="Spatial"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 script = ExtResource( 3 )
+path_to_scene = "res://scenes/error_scene.tscn"
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.0507672, 0, 0, 0, 1, 0, 0, 0 )

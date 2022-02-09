@@ -22,4 +22,5 @@ func _on_body_body_entered(body):
 
 
 func _on_Timer_timeout():
-	return(get_tree().change_scene(path_to_scene))
+	if (get_tree().change_scene(path_to_scene)):
+		return(get_tree().change_scene("res://scenes/error_scene.tscn"))

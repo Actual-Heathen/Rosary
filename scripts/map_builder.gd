@@ -9,6 +9,7 @@ var start_x
 var start_y
 var last_x
 var last_y
+var rng
 export(int) var room_x
 export(int) var room_y
 
@@ -26,22 +27,19 @@ const enemys : Array = [
 	]
 
 func _ready():
+	randomize()
+	rng = RandomNumberGenerator.new()
+	rng.randomize()
+
 	matrix_gen() #create the 2d matrix with 'width' and 'height'
 	randfill_matrix() #fill the matrix with numbers from 0 to 100
-	print_matrix() #print out the elements of the matrix for debugging
 	binary_matrixer() # turn matrix into binary form if the value is high enough
-	print_matrix() #print out the elements of the matrix for debugging
-	snip_matrix() # snip nonconnecting rooms off
-	print("S N I P")
-	print_matrix() #print out the elements of the matrix for debugging
 	open_matrix() #determine the starting room of the matrix
 	crop_matrix() #crop everything off that the player cannot access 
-	print("C R O P P E D")
-	print_matrix() #print out the elements of the matrix for debugging
 
  #now that the matrix is complete, time to build the rooms based on the matrix
 	place_rooms() #create dynamic_room children in the correct spots
-	spawn_player()
+	spawn_player() #make a player instance 
 	spawn_exit()
 	spawn_baddies()
 
@@ -55,14 +53,12 @@ func matrix_gen():
 
 #fill the matrix with numbers from 0 to 100
 func randfill_matrix():
-	randomize()
-	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	for x in range(width):
 		for y in range(height):
 			maptrix[x][y] = randi() % 101
-	maptrix[0][0] = 1
-	maptrix[0][1] = 1
+	maptrix[0][0] = 100
+	maptrix[0][1] = 100
 
 #print out the elements of the matrix for debugging
 func print_matrix():
@@ -80,30 +76,9 @@ func binary_matrixer():
 				maptrix[x][y] = 1
 			else:
 				maptrix[x][y] = 0
-				
-# snip nonconnecting rooms off 
-func snip_matrix():
-	var safe = false
-	for x in range(width):
-		for y in range(height):
-			if maptrix[x][y] == 1:
-				safe = false
-				if x+1 < width  && maptrix[x+1][y] == 1:
-					safe = true
-				if x-1 > 0      && maptrix[x-1][y] == 1:
-					safe = true
-				if y+1 < height && maptrix[x][y+1] == 1:
-					safe = true
-				if y-1 > 0      && maptrix[x][y-1] == 1:
-					safe = true
-				if safe == false:
-					maptrix[x][y] = 0
 
 #mark the starting room
 func open_matrix():
-	randomize()
-	var rng = RandomNumberGenerator.new()
-	rng.randomize()
 	var x = randi() % width 
 	var y = randi() % height
 	while maptrix[x][y] != 1:
@@ -148,7 +123,6 @@ func crop_matrix():
 #create dynamic_room children in the correct spots
 func place_rooms():
 	var room = preload("res://prefabs/dynamic_room.tscn")
-	var enemy = preload("res://prefabs/enemyBaseModel.tscn")
 
 	var cur_room
 	for x in range(width):
@@ -183,31 +157,41 @@ func spawn_exit():
 	exit.path_to_scene  = (exit_scene)
 	exit.translation = Vector3(last_x*room_x,1,last_y*room_y)
 
+func get_matrix_room_rand_pos(var x, var y):
+	return Vector3((x*room_x) + (randi() %room_x/2 - room_x/4),1,(y*room_y) + (randi() %room_y/2 - room_y/4))
+
+func get_random_enemy():
+	return enemys[randi() % enemy_count]
+
+func get_random_decor():
+	return decors[randi() % decor_count]
+
 # spawn baddies in rooms
 func spawn_baddies():
-	randomize()
-	var rng = RandomNumberGenerator.new()
-	rng.randomize()
-
-	var enemy = preload("res://prefabs/Enemy.tscn")
-	#var enemy = preload("res://prefabs/enemyBaseModel.tscn")
-	var decor = preload("res://prefabs/SM_Tree.tscn")
 	var cur_enemy
+	var enemy = preload("res://prefabs/error.tscn")
 	var cur_decor
+	var decor = preload("res://prefabs/error.tscn")
+
 	for x in range(width):
 		for y in range(height):
-			if maptrix[x][y] >= 1:
-				if (!(x == start_x && y == start_y)):
-					if (!(x == last_x && y == last_y)):
-						enemy = enemys[randi() % enemy_count]
+
+			# Only run if rooms value is higher than 1
+			if (maptrix[x][y] >= 1):
+				# Dont run if the current room is the spawn area or the exit area
+				if (!(x == start_x && y == start_y) && !(x == last_x && y == last_y)):
+
+			
+						enemy = get_random_enemy()
 						cur_enemy = enemy.instance()
 						add_child(cur_enemy)
-						cur_enemy.translation = Vector3((x*room_x)-(room_x/2) + randi() %room_y,1,(x*room_y)-(room_y/2) + randi() %room_y)
+						cur_enemy.translation = get_matrix_room_rand_pos(x,y)
+
 						if(randi() % 3 == 0):
-							decor = decors[randi() % decor_count]
+							decor = get_random_decor()
 							cur_decor = decor.instance()
 							add_child(cur_decor)
-							cur_decor.translation = Vector3((x*room_x)-(room_x/2) + randi() %room_y,1,(x*room_y)-(room_y/2) + randi() %room_y)
+							cur_decor.translation = get_matrix_room_rand_pos(x,y)
 							
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
