@@ -17,15 +17,20 @@ func _ready():
 	
 	#if event.is_action_pressed("ui_cancel"):
 		#$VBoxContainer/CenterContainer/Pause
+func _on_Resume_pressed():
+	get_parent().canMove = true
+	queue_free()
 
 func _on_Restart_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene("res://scenes/Menu.tscn")
 
 func _on_Options_pressed():
 	pass # Replace with function body.
 
 func _on_Menu_pressed():
 	get_tree().change_scene("res://scenes/Menu.tscn")
+
+
 
 
 
