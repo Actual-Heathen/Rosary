@@ -106,6 +106,7 @@ margin_bottom = 20.0
 focus_neighbour_bottom = NodePath("../../../CenterContainer/HBoxContainer/Resume")
 text = "RETURN TO MENU"
 
+[connection signal="pressed" from="VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/Restart" to="." method="_on_Restart_pressed"]
 [connection signal="pressed" from="VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer/Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer4/HBoxContainer/Menu" to="." method="_on_Menu_pressed"]
