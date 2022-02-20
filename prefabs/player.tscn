@@ -168,6 +168,66 @@ flags = 19
 atlas = ExtResource( 7 )
 region = Rect2( 258, 86, 86, 86 )
 
+[sub_resource type="AtlasTexture" id=26]
+flags = 19
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 86, 86 )
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 19
+atlas = ExtResource( 4 )
+region = Rect2( 86, 0, 86, 86 )
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 19
+atlas = ExtResource( 4 )
+region = Rect2( 172, 0, 86, 86 )
+
+[sub_resource type="AtlasTexture" id=29]
+flags = 19
+atlas = ExtResource( 4 )
+region = Rect2( 258, 0, 86, 86 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 19
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 86, 86 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 19
+atlas = ExtResource( 6 )
+region = Rect2( 86, 0, 86, 86 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 19
+atlas = ExtResource( 6 )
+region = Rect2( 172, 0, 86, 86 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 19
+atlas = ExtResource( 6 )
+region = Rect2( 258, 0, 86, 86 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 19
+atlas = ExtResource( 6 )
+region = Rect2( 0, 86, 86, 86 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 19
+atlas = ExtResource( 6 )
+region = Rect2( 86, 86, 86, 86 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 19
+atlas = ExtResource( 6 )
+region = Rect2( 172, 86, 86, 86 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 19
+atlas = ExtResource( 6 )
+region = Rect2( 258, 86, 86, 86 )
+
 [sub_resource type="AtlasTexture" id=8]
 flags = 19
 atlas = ExtResource( 5 )
@@ -238,66 +298,6 @@ flags = 19
 atlas = ExtResource( 9 )
 region = Rect2( 258, 86, 86, 86 )
 
-[sub_resource type="AtlasTexture" id=14]
-flags = 19
-atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 86, 86 )
-
-[sub_resource type="AtlasTexture" id=15]
-flags = 19
-atlas = ExtResource( 6 )
-region = Rect2( 86, 0, 86, 86 )
-
-[sub_resource type="AtlasTexture" id=16]
-flags = 19
-atlas = ExtResource( 6 )
-region = Rect2( 172, 0, 86, 86 )
-
-[sub_resource type="AtlasTexture" id=17]
-flags = 19
-atlas = ExtResource( 6 )
-region = Rect2( 258, 0, 86, 86 )
-
-[sub_resource type="AtlasTexture" id=18]
-flags = 19
-atlas = ExtResource( 6 )
-region = Rect2( 0, 86, 86, 86 )
-
-[sub_resource type="AtlasTexture" id=19]
-flags = 19
-atlas = ExtResource( 6 )
-region = Rect2( 86, 86, 86, 86 )
-
-[sub_resource type="AtlasTexture" id=20]
-flags = 19
-atlas = ExtResource( 6 )
-region = Rect2( 172, 86, 86, 86 )
-
-[sub_resource type="AtlasTexture" id=21]
-flags = 19
-atlas = ExtResource( 6 )
-region = Rect2( 258, 86, 86, 86 )
-
-[sub_resource type="AtlasTexture" id=26]
-flags = 19
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 86, 86 )
-
-[sub_resource type="AtlasTexture" id=27]
-flags = 19
-atlas = ExtResource( 4 )
-region = Rect2( 86, 0, 86, 86 )
-
-[sub_resource type="AtlasTexture" id=28]
-flags = 19
-atlas = ExtResource( 4 )
-region = Rect2( 172, 0, 86, 86 )
-
-[sub_resource type="AtlasTexture" id=29]
-flags = 19
-atlas = ExtResource( 4 )
-region = Rect2( 258, 0, 86, 86 )
-
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
 "frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
@@ -320,6 +320,16 @@ animations = [ {
 "name": " long",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
+"loop": true,
+"name": "walking",
+"speed": 12.0
+}, {
+"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
+"loop": false,
+"name": "lash",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
 "loop": false,
 "name": "death",
@@ -329,16 +339,6 @@ animations = [ {
 "loop": false,
 "name": "DemonFly",
 "speed": 5.0
-}, {
-"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
-"loop": false,
-"name": "lash",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
-"loop": true,
-"name": "walking",
-"speed": 12.0
 } ]
 
 [sub_resource type="CylinderShape" id=65]
