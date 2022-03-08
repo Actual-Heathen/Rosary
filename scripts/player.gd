@@ -26,7 +26,8 @@ onready var dhb = $longHit/CSGMesh2
 onready var lrhb = $dash/CollisionShape
 
 var dust = preload("res://prefabs/dashparticle.tscn") #dust particle
-var dust = preload("res://scenes/PauseMenu.tscn") #dust and mold
+var pause = preload("res://scenes/PauseMenu.tscn") #dust and mold
+
 
 
 func _physics_process(delta):
@@ -42,19 +43,15 @@ func _physics_process(delta):
 	elif canMove:
 		if Input.is_action_pressed(("forward")):
 			direction.z += 1
-			direction.x -= 1
 			sprite.flip_h = false
 		elif Input.is_action_pressed("back"):
 			direction.z -= 1
-			direction.x += 1
 			sprite.flip_h = true
 		if Input.is_action_pressed("right"):
 			direction.x -= 1
-			direction.z -= 1
 			sprite.flip_h = true
 		elif Input.is_action_pressed("left"):
 			direction.x +=1
-			direction.z += 1
 			sprite.flip_h = false
 		
 		if Input.is_action_just_pressed("pause"):
@@ -128,10 +125,12 @@ func _physics_process(delta):
 				 #normal calculations
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed  #*2 to compensate for the perspective
-				
+		
+		
+		
 		if velocity.y > 3: #velocity cap
 			velocity.y = 3
-		velocity = move_and_slide(velocity, Vector3.UP)
+		velocity = move_and_slide(transform.basis.xform(velocity), Vector3.UP)
 		
 		
 		if Input.is_action_just_pressed("monster"): #change to monster mode#
@@ -176,5 +175,8 @@ func _on_body_body_entered(dash,longHit):  ##for enemy damaging##  ####WIP####
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if Input.is_action_just_pressed("cameraRight"):
+		rotate_y(PI/2)
+	if Input.is_action_just_pressed("cameraLeft"):
+		rotate_y(-PI/2)
