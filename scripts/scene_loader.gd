@@ -13,7 +13,6 @@ func _ready():
 
 
 func _on_body_body_entered(body):
-	print(body.name)
 	if body.name == "player":
 		body.fall_acceleration = -50
 		body.canMove = false
