@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://prefabs/map_builder.tscn" type="PackedScene" id=1]
+
+[sub_resource type="ProceduralSky" id=7]
+sky_top_color = Color( 0.32549, 0.403922, 0.45098, 1 )
+ground_horizon_color = Color( 0.384314, 0.278431, 0.184314, 1 )
+sun_color = Color( 1, 0.976471, 0.635294, 1 )
+
+[sub_resource type="Environment" id=6]
+background_mode = 2
+background_sky = SubResource( 7 )
+ambient_light_color = Color( 0.113725, 0.211765, 0.25098, 1 )
+
+[node name="floor2" type="Spatial"]
+
+[node name="Spatial" parent="." instance=ExtResource( 1 )]
+exit_scene = "res://scenes/floor3.tscn"
+width = 5
+height = 5
+density = 20
+room_x = 40
+room_y = 40
+
+[node name="OmniLight" type="DirectionalLight" parent="."]
+transform = Transform( -0.996195, -0.0312338, 0.0813668, 0, 0.93358, 0.358368, -0.0871556, 0.357004, -0.930028, -18.3697, 33.6079, -4.47994 )
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 6 )

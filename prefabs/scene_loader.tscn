@@ -1,0 +1,107 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://shader/hatch_toon.shader" type="Shader" id=1]
+[ext_resource path="res://shader/flexible_toon.shader" type="Shader" id=2]
+[ext_resource path="res://scripts/scene_loader.gd" type="Script" id=3]
+[ext_resource path="res://audio/warp_01.wav" type="AudioStream" id=4]
+
+[sub_resource type="CylinderMesh" id=1]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 1 )
+shader_param/albedo = Color( 0, 1, 0.964706, 1 )
+shader_param/cuts = 2
+shader_param/wrap = 0.0
+shader_param/steepness = null
+shader_param/use_attenuation = true
+shader_param/use_rim = false
+shader_param/rim_width = 8.0
+shader_param/rim_color = Color( 1, 1, 1, 1 )
+shader_param/hatch_scale = 2.0
+shader_param/use_triplanar = true
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.210792, 0.213472, 0.183952 )
+
+[sub_resource type="GradientTexture" id=4]
+
+[sub_resource type="ParticlesMaterial" id=5]
+lifetime_randomness = 0.1
+trail_color_modifier = SubResource( 4 )
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+gravity = Vector3( 0, 10, 0 )
+angle_random = 1.0
+hue_variation = 0.67
+hue_variation_random = 0.66
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 2 )
+shader_param/albedo = Color( 0.988235, 1, 0.427451, 1 )
+shader_param/clamp_diffuse_to_max = false
+shader_param/cuts = 3
+shader_param/wrap = 0.0
+shader_param/steepness = 1.0
+shader_param/use_attenuation = true
+shader_param/use_specular = true
+shader_param/specular_strength = 1.0
+shader_param/specular_shininess = 16.0
+shader_param/use_rim = true
+shader_param/rim_width = 8.0
+shader_param/rim_color = Color( 0.827451, 1, 0, 1 )
+shader_param/use_ramp = false
+shader_param/use_borders = false
+shader_param/border_width = 0.01
+
+[sub_resource type="CubeMesh" id=7]
+material = SubResource( 6 )
+custom_aabb = AABB( -1, -1, -1, 0, 0, 0 )
+size = Vector3( 0.1, 0.1, 0.1 )
+
+[sub_resource type="CylinderMesh" id=8]
+
+[sub_resource type="SpatialMaterial" id=9]
+flags_transparent = true
+albedo_color = Color( 0, 0.968627, 1, 0.454902 )
+
+[node name="scene_loader" type="Spatial"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+script = ExtResource( 3 )
+path_to_scene = "res://scenes/error_scene.tscn"
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.0507672, 0, 0, 0, 1, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="body" type="Area" parent="."]
+transform = Transform( 0.688171, 0, 0, 0, 4.15753, 0, 0, 0, 0.915714, 0, 0.909432, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="body"]
+shape = SubResource( 3 )
+
+[node name="Particles" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.746522, 0 )
+randomness = 1.0
+visibility_aabb = AABB( -0.839808, -1.15504, -0.64484, 1.67962, 2.31008, 1.28968 )
+process_material = SubResource( 5 )
+draw_pass_1 = SubResource( 7 )
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 0.5, 0, 0, 0, -0.0037524, 0.499986, 0, -0.499986, -0.0037524, 0, 7.745, 0 )
+light_color = Color( 0, 1, 0.905882, 1 )
+spot_range = 15.6528
+spot_angle = 8.38353
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 0.8, 0, 0, 0, 30, 0, 0, 0, 0.8, 0, 30, 0 )
+mesh = SubResource( 8 )
+material/0 = SubResource( 9 )
+
+[connection signal="body_entered" from="body" to="." method="_on_body_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

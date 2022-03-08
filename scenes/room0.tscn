@@ -1,0 +1,95 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://prefabs/Arch.tscn" type="PackedScene" id=1]
+[ext_resource path="res://prefabs/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://prefabs/SM_Branch00.tscn" type="PackedScene" id=3]
+[ext_resource path="res://prefabs/SM_Branch02.tscn" type="PackedScene" id=4]
+[ext_resource path="res://prefabs/SM_Column.tscn" type="PackedScene" id=5]
+[ext_resource path="res://prefabs/SM_Shelf.tscn" type="PackedScene" id=6]
+[ext_resource path="res://prefabs/SM_Vine01.tscn" type="PackedScene" id=7]
+[ext_resource path="res://prefabs/SM_Tree.tscn" type="PackedScene" id=8]
+[ext_resource path="res://prefabs/Rock.tscn" type="PackedScene" id=9]
+[ext_resource path="res://prefabs/Cross.tscn" type="PackedScene" id=10]
+[ext_resource path="res://prefabs/SM_StoneWall.tscn" type="PackedScene" id=11]
+[ext_resource path="res://prefabs/SM_TreeStump.tscn" type="PackedScene" id=12]
+[ext_resource path="res://prefabs/SM_Stained_Glass.tscn" type="PackedScene" id=13]
+[ext_resource path="res://materials/grass_stone.tres" type="Material" id=14]
+[ext_resource path="res://prefabs/Enemy_bishop.tscn" type="PackedScene" id=15]
+
+[sub_resource type="QuadMesh" id=1]
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 19.9874, 1, 20.1196 )
+
+[node name="room0" type="Spatial"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="CSGMesh" type="CSGMesh" parent="StaticBody"]
+transform = Transform( 40, 0, 0, 0, -1.74846e-06, 40, 0, -40, -1.74846e-06, 0, 0, 0 )
+mesh = SubResource( 1 )
+material = ExtResource( 14 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.954411, 0 )
+shape = SubResource( 2 )
+
+[node name="SM_Tree" parent="." instance=ExtResource( 8 )]
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, 14.3305, -0.0986009, -11.4571 )
+
+[node name="SM_TreeStump" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7061, 0.0456271, -6.09493 )
+
+[node name="Arch" parent="." instance=ExtResource( 1 )]
+transform = Transform( 10.6763, 11.7099, 12.2023, -5.10876, -11.5231, 15.528, 16.122, -11.406, -3.16005, -9.00552, 2.63429, -4.62565 )
+
+[node name="SM_Column" parent="." instance=ExtResource( 5 )]
+transform = Transform( 14.3236, 0, 0, 0, -5.20249e-07, 11.9019, 0, -14.7301, -6.43872e-07, -17.1599, 0.045589, -2.3778 )
+
+[node name="SM_Column2" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1.40196, -5.17751e-07, 11.8448, -14.2548, -5.0921e-08, 1.16494, 0, -14.7301, -6.43872e-07, -17.1599, 0.0455894, 3.75738 )
+
+[node name="SM_Stained_Glass" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.760869, 0.245231, -19.511 )
+
+[node name="SM_Vine01" parent="." instance=ExtResource( 7 )]
+transform = Transform( 2.01645, -4.57536, -1.99995e-07, 2.93842, 1.29502, 3.83258, -3.50709, -1.54564, 3.21113, 12.2193, -0.41327, -12.0052 )
+
+[node name="SM_Shelf" parent="." instance=ExtResource( 6 )]
+transform = Transform( 8.82398, 4.69049, 0.369728, 0, 0.785812, -9.96908, -4.70504, 8.79669, 0.693399, 9.33146, 2.10668, 5.08434 )
+
+[node name="SM_Shelf2" parent="." instance=ExtResource( 6 )]
+transform = Transform( 8.82398, 4.69049, 0.369728, 0, 0.785812, -9.96908, -4.70504, 8.79669, 0.693399, 9.33146, 4.38946, 4.91205 )
+
+[node name="SM_Shelf3" parent="." instance=ExtResource( 6 )]
+transform = Transform( 9.99972, -0.0735137, 0.0126886, 0.0725639, 9.97971, 0.63247, -0.0173123, -0.63236, 9.97997, 7.80739, 1.26476, -0.524457 )
+
+[node name="SM_Branch00" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.78258, 18.896, 6.30582, -5.14025, 6.55293, -18.1834, -19.2458, 0, 5.44057, 5.72342, 2.55685, 8.08596 )
+
+[node name="SM_Branch02" parent="." instance=ExtResource( 4 )]
+transform = Transform( 19.3185, 5.17638, 0, -5.17638, 19.3185, 0, 0, 0, 20, 2.85316, 0.0455885, 2.5289 )
+
+[node name="Cross" parent="." instance=ExtResource( 10 )]
+transform = Transform( -1, 0, 0.000890167, 0, 1, 0, -0.000890167, 0, -1, -0.804293, 10.489, -19.0636 )
+
+[node name="Rock" parent="." instance=ExtResource( 9 )]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 9.78107, 0.0455885, -10.144 )
+
+[node name="SM_StoneWall" parent="." instance=ExtResource( 11 )]
+transform = Transform( 13.668, 0, 0, 0, 8.73377, -5.05838, 0, 5.12141, 8.62628, 12.8443, 5.13507, -15.468 )
+
+[node name="SM_StoneWall2" parent="." instance=ExtResource( 11 )]
+transform = Transform( 13.668, 0, 0, 0, 10.1246, 0, 0, 0, 10, -13.0649, 5.13507, -20.1208 )
+
+[node name="Enemy" parent="." instance=ExtResource( 15 )]
+transform = Transform( 0.317724, -0.317724, 3.09086e-08, 0, -1.96408e-08, -1, 0.317724, 0.317724, -3.09086e-08, 5.96768, 1.5061, -14.6793 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 15 )]
+transform = Transform( 0.317724, -0.317724, 3.09086e-08, 0, -1.96408e-08, -1, 0.317724, 0.317724, -3.09086e-08, -10.3403, 1.28277, -16.3087 )
+
+[node name="player" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -18.2414, 0.0469036, 18.4107 )
+
+[editable path="SM_Column"]

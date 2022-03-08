@@ -1,0 +1,112 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ui/Adventurer.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/PauseMenu.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+outline_color = Color( 0.694118, 0.694118, 0.694118, 1 )
+font_data = ExtResource( 1 )
+
+[node name="PauseMenu" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -512.0
+margin_right = 512.0
+margin_bottom = 600.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 236.0
+margin_right = 1024.0
+margin_bottom = 267.0
+
+[node name="Pause" type="Label" parent="VBoxContainer/CenterContainer"]
+margin_left = 466.0
+margin_right = 557.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 1 )
+text = "Pause"
+uppercase = true
+
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 271.0
+margin_right = 1024.0
+margin_bottom = 363.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CenterContainer2"]
+margin_left = 448.0
+margin_right = 575.0
+margin_bottom = 92.0
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_right = 127.0
+margin_bottom = 20.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer"]
+margin_right = 127.0
+margin_bottom = 20.0
+
+[node name="Resume" type="Button" parent="VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_right = 127.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 127, 0 )
+focus_neighbour_top = NodePath("../../../CenterContainer4/HBoxContainer/Menu")
+text = "RESUME GAME"
+
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 24.0
+margin_right = 127.0
+margin_bottom = 44.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2"]
+margin_right = 127.0
+margin_bottom = 20.0
+
+[node name="Restart" type="Button" parent="VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
+margin_right = 127.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 127, 0 )
+text = "RESTART GAME"
+
+[node name="CenterContainer3" type="CenterContainer" parent="VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 48.0
+margin_right = 127.0
+margin_bottom = 68.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3"]
+margin_right = 127.0
+margin_bottom = 20.0
+
+[node name="Options" type="Button" parent="VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
+margin_right = 127.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 127, 0 )
+text = "OPTIONS"
+
+[node name="CenterContainer4" type="CenterContainer" parent="VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 72.0
+margin_right = 127.0
+margin_bottom = 92.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer4"]
+margin_right = 127.0
+margin_bottom = 20.0
+
+[node name="Menu" type="Button" parent="VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer4/HBoxContainer"]
+margin_right = 127.0
+margin_bottom = 20.0
+focus_neighbour_bottom = NodePath("../../../CenterContainer/HBoxContainer/Resume")
+text = "RETURN TO MENU"
+
+[connection signal="pressed" from="VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer4/HBoxContainer/Menu" to="." method="_on_Menu_pressed"]

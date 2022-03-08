@@ -1,0 +1,36 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path.s3tc="res://.import/demonFlying7.png-18582c4ef54862af1e7f355d9c21d949.s3tc.stex"
+path.etc2="res://.import/demonFlying7.png-18582c4ef54862af1e7f355d9c21d949.etc2.stex"
+metadata={
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://sprites/demonFlying7.png"
+dest_files=[ "res://.import/demonFlying7.png-18582c4ef54862af1e7f355d9c21d949.s3tc.stex", "res://.import/demonFlying7.png-18582c4ef54862af1e7f355d9c21d949.etc2.stex" ]
+
+[params]
+
+compress/mode=2
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=true
+flags/filter=false
+flags/mipmaps=true
+flags/anisotropic=false
+flags/srgb=1
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0
