@@ -1,0 +1,7 @@
+[gd_scene format=2]
+
+[node name="StaticBody" type="StaticBody"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="."]

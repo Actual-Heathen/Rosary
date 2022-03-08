@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://materials/SM_Vine.tres" type="Material" id=1]
+[ext_resource path="res://3dassets/SM_Vine02.fbx" type="PackedScene" id=2]
+
+[node name="SM_Vine02" instance=ExtResource( 2 )]
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0 )
+
+[node name="SM_Vine02" parent="RootNode" index="0"]
+material/0 = ExtResource( 1 )

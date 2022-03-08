@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://shader/flexible_toon.shader" type="Shader" id=1]
+
+[sub_resource type="ParticlesMaterial" id=1]
+trail_divisor = 3
+emission_shape = 5
+emission_ring_radius = 4.0
+emission_ring_inner_radius = 2.0
+emission_ring_height = 1.0
+emission_ring_axis = Vector3( 0, 0, 1 )
+direction = Vector3( 0, 0, 1 )
+spread = 2.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 1 )
+shader_param/albedo = Color( 0.439216, 0.254902, 0, 1 )
+shader_param/clamp_diffuse_to_max = false
+shader_param/cuts = 5
+shader_param/wrap = 0.0
+shader_param/steepness = 1.0
+shader_param/use_attenuation = true
+shader_param/use_specular = false
+shader_param/specular_strength = 1.0
+shader_param/specular_shininess = 16.0
+shader_param/use_rim = true
+shader_param/rim_width = 8.0
+shader_param/rim_color = Color( 0, 0, 0, 1 )
+shader_param/use_ramp = true
+shader_param/use_borders = false
+shader_param/border_width = 0.01
+
+[sub_resource type="CubeMesh" id=2]
+material = SubResource( 3 )
+size = Vector3( 0.5, 0.5, 0.5 )
+
+[node name="dash" type="Spatial"]
+
+[node name="Particles" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33626, 0.292505 )
+amount = 100
+lifetime = 0.38
+one_shot = true
+explosiveness = 0.93
+visibility_aabb = AABB( -27.6355, -5.15866, -76.6676, 55.271, 82.2841, 85.5911 )
+process_material = SubResource( 1 )
+draw_pass_1 = SubResource( 2 )

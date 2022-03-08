@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://shader/flexible_toon.shader" type="Shader" id=1]
+[ext_resource path="res://3dassets/Stone Wall.material" type="Material" id=2]
+[ext_resource path="res://textures/T_Stone.jpg" type="Texture" id=3]
+
+[sub_resource type="ArrayMesh" id=1]
+blend_shape_mode = 0
+surfaces/0 = {
+"aabb": AABB( -0.5, -0.5, 0, 1, 1, 0.0559 ),
+"array_data": PoolByteArray( 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 0, 127, 127, 129, 63, 0, 60, 0, 60, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 0, 127, 127, 129, 63, 0, 60, 0, 0, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 0, 127, 127, 129, 63, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 0, 127, 127, 129, 63, 0, 0, 0, 60, 0, 0, 0, 191, 0, 0, 0, 191, 102, 247, 100, 61, 0, 0, 127, 63, 0, 0, 0, 60, 0, 0, 0, 63, 0, 0, 0, 191, 102, 247, 100, 61, 0, 0, 127, 63, 0, 60, 0, 60, 0, 0, 0, 63, 0, 0, 0, 63, 102, 247, 100, 61, 0, 0, 127, 63, 0, 60, 0, 0, 0, 0, 0, 191, 0, 0, 0, 63, 102, 247, 100, 61, 0, 0, 127, 63, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 0, 0, 129, 126, 63, 228, 26, 106, 43, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 0, 0, 129, 126, 63, 244, 59, 252, 43, 0, 0, 0, 63, 0, 0, 0, 191, 102, 247, 100, 61, 0, 129, 126, 63, 245, 59, 41, 31, 0, 0, 0, 191, 0, 0, 0, 191, 102, 247, 100, 61, 0, 129, 126, 63, 103, 27, 49, 25, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 0, 127, 0, 0, 126, 241, 26, 110, 43, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 0, 127, 0, 0, 126, 244, 59, 249, 43, 0, 0, 0, 63, 0, 0, 0, 63, 102, 247, 100, 61, 127, 0, 0, 126, 245, 59, 11, 31, 0, 0, 0, 63, 0, 0, 0, 191, 102, 247, 100, 61, 127, 0, 0, 126, 109, 27, 106, 25, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 0, 0, 127, 130, 63, 228, 26, 106, 43, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 0, 0, 127, 130, 63, 244, 59, 252, 43, 0, 0, 0, 191, 0, 0, 0, 63, 102, 247, 100, 61, 0, 127, 130, 63, 245, 59, 41, 31, 0, 0, 0, 63, 0, 0, 0, 63, 102, 247, 100, 61, 0, 127, 130, 63, 103, 27, 49, 25, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 0, 129, 0, 0, 1, 241, 26, 110, 43, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 0, 129, 0, 0, 1, 244, 59, 249, 43, 0, 0, 0, 191, 0, 0, 0, 191, 102, 247, 100, 61, 129, 0, 0, 1, 245, 59, 11, 31, 0, 0, 0, 191, 0, 0, 0, 63, 102, 247, 100, 61, 129, 0, 0, 1, 109, 27, 106, 25 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 2, 0, 0, 0, 3, 0, 4, 0, 6, 0, 5, 0, 6, 0, 4, 0, 7, 0, 8, 0, 10, 0, 9, 0, 10, 0, 8, 0, 11, 0, 12, 0, 14, 0, 13, 0, 14, 0, 12, 0, 15, 0, 16, 0, 18, 0, 17, 0, 18, 0, 16, 0, 19, 0, 20, 0, 22, 0, 21, 0, 22, 0, 20, 0, 23, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 36,
+"material": ExtResource( 2 ),
+"name": "Stone Wall",
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 24
+}
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 1 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/clamp_diffuse_to_max = false
+shader_param/cuts = 5
+shader_param/wrap = 0.0
+shader_param/steepness = 1.0
+shader_param/use_attenuation = true
+shader_param/use_specular = false
+shader_param/specular_strength = 1.0
+shader_param/specular_shininess = 16.0
+shader_param/use_rim = true
+shader_param/rim_width = 8.0
+shader_param/rim_color = Color( 0, 0, 0, 1 )
+shader_param/use_ramp = false
+shader_param/use_borders = true
+shader_param/border_width = 0.01
+shader_param/albedo_texture = ExtResource( 3 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Take 001"
+length = 3.33333
+
+[sub_resource type="ConvexPolygonShape" id=4]
+points = PoolVector3Array( 0.5, 0.5, 0.0559, 0.5, 0.5, 0, -0.5, 0.5, 0.0559, 0.5, -0.5, 0.0559, 0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, -0.5, 0.0559, -0.5, -0.5, 0 )
+
+[node name="SM_StoneWall" type="StaticBody"]
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0 )
+
+[node name="RootNode" type="Spatial" parent="."]
+
+[node name="SM_StoneWall" type="MeshInstance" parent="RootNode"]
+mesh = SubResource( 1 )
+material/0 = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RootNode"]
+"anims/Take 001" = SubResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 4 )

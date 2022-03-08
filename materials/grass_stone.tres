@@ -1,0 +1,11 @@
+[gd_resource type="SpatialMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://textures/T_GrassyStone.jpg" type="Texture" id=1]
+[ext_resource path="res://textures/Marble/T_Marble_N.jpg" type="Texture" id=2]
+
+[resource]
+albedo_texture = ExtResource( 1 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 2 )
+uv1_scale = Vector3( 6, 3, 6 )
